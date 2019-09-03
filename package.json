@@ -8,6 +8,7 @@
     "url": "https://github.com/azer53/gatsby-tailwind-starter/issues"
   },
   "dependencies": {
+    "auth0-js": "^9.11.3",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.3.25",
     "gatsby-background-image": "^0.8.3",
