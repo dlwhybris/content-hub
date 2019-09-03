@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: azer53/gatsby-tailwind-starter
+
+media_folder: static/assets
+public_folder: /assets
+collections:
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
+      - { name: "cover",label: "Featured Image", widget: "image", required: true}
+      - { name: "tags", label: "Tags",  widget: "list", default: ["news"]}
+      - { name: "author", label: "Author", widget: "select",options: ["eli"]}
+
+
