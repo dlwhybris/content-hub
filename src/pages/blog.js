@@ -3,9 +3,15 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
+import { login, isAuthenticated } from "../utils/auth"
 
 class Blog extends React.Component {
   render() {
+    if (!isAuthenticated()) {
+      login()
+      return <p>Redirecting to login...</p>
+    }
+
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
@@ -14,7 +20,9 @@ class Blog extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
         <main className="py-8 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl">
-          <h1 className="text-5xl my-8 font-semibold text-indigo-500 tracking-wider text-center">All posts</h1>
+          <h1 className="text-5xl my-8 font-semibold text-indigo-500 tracking-wider text-center">
+            All posts
+          </h1>
           <div class="flex flex-col">
             <div>
               {posts.map(({ node }) => {
@@ -31,7 +39,6 @@ class Blog extends React.Component {
               Read more
             </button>
           </div>
-
         </main>
       </Layout>
     )
@@ -64,19 +71,19 @@ export const pageQuery = graphql`
               name
               bio
               avatar {
-                  childImageSharp {
-                    fluid (quality: 100) {
-                      ...GatsbyImageSharpFluid
+                childImageSharp {
+                  fluid(quality: 100) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
             }
             cover {
-                childImageSharp{
-                    sizes(maxWidth: 2000) {
-                        ...GatsbyImageSharpSizes
-                    }
+              childImageSharp {
+                sizes(maxWidth: 2000) {
+                  ...GatsbyImageSharpSizes
                 }
+              }
             }
           }
         }
