@@ -76,6 +76,7 @@ export const silentAuth = callback => {
 export const logout = () => {
   localStorage.setItem("isLoggedIn", false)
   auth.logout({
-    returnTo: process.env.GATSBY_AUTH0_DOMAIN,
+    returnTo: window.location.origin,
+    clientID: process.env.GATSBY_AUTH0_CLIENTID,
   })
 }
