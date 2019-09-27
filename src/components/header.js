@@ -1,15 +1,15 @@
 import { Link } from "gatsby"
 import React from "react"
 import Logo from "./logo"
-import { getProfile } from "../utils/auth"
+import { getProfile, logout, login } from "../utils/auth"
 
 function Header() {
   const user = getProfile()
   return (
     <header className="bg-white border-t border-indigo-300 shadow-lg">
-      <nav className="py-4 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex items-center justify-between flex-wrap py-4">
+      <nav className="py-4 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex items-center justify-between py-4">
         <Logo />
-        <div className="flex">
+        <div className="">
           <div className="text-xs sm:text-sm flex justify-between">
             <Link
               to="/blog"
@@ -18,8 +18,37 @@ function Header() {
               Posts
             </Link>
             <p>
-              <p>Hi, {user.name ? user.name : "friend"}!</p>
+              <p>
+                {user.name ? (
+                  user.name
+                ) : (
+                  <a
+                    href="#login"
+                    onClick={e => {
+                      login()
+                      e.preventDefault()
+                    }}
+                  >
+                    Login
+                  </a>
+                )}
+              </p>
             </p>
+            <section>
+              {user.name ? (
+                <a
+                  href="#logout"
+                  onClick={e => {
+                    logout()
+                    e.preventDefault()
+                  }}
+                >
+                  Log Out
+                </a>
+              ) : (
+                ""
+              )}
+            </section>
           </div>
         </div>
       </nav>
