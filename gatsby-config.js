@@ -3,7 +3,7 @@ module.exports = {
     // edit below
     title: `Content Hub`,
     author: `Eli Colpaert`,
-    description: `Gatsby Tailwind Blog Starter including Netlify CMS`,
+    description: `Content Hub`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `colpaerteli`,

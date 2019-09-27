@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-tailwind-blog-starter",
+  "name": "Content Hub",
   "private": true,
-  "description": "A personal blog starter for a blog powered by Netlify CMS, with Tailwind",
+  "description": "Content Hub",
   "version": "0.1.0",
   "author": "Eli Colpaert",
   "bugs": {
