@@ -52,6 +52,17 @@ export const pageQuery = graphql`
           authors {
             firstName
             lastName
+            avatar {
+              fluid(maxWidth: 700) {
+                ...GatsbyContentfulFluid
+              }
+            }
+            bio {
+              childMarkdownRemark {
+                excerpt
+                html
+              }
+            }
           }
           title
           tags

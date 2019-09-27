@@ -40,7 +40,7 @@ class Card extends React.Component {
                 post.content.content,
             }}
           />
-          <Author authors={post.author} />
+          <Author authors={post.authors} />
 
           <Tags tags={post.tags} />
         </div>
