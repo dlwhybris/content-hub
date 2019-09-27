@@ -1,8 +1,8 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 exports.createPages = ({ graphql, actions }) => {
+  /* 
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
@@ -51,9 +51,10 @@ exports.createPages = ({ graphql, actions }) => {
 
     return null
   })
+ */
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+/* exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   fmImagesToRelative(node)
 
@@ -65,7 +66,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
-}
+} */
 
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions

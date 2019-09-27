@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     // edit below
@@ -10,32 +14,18 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
-    `gatsby-transformer-yaml`,
     `gatsby-plugin-react-helmet`,
-    /*     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/static/assets`,
-        name: "uploads",
-      },
-    }, */
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/authors`,
-        name: `authors`,
+        spaceId: `l8waisr0oq28`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
+        host: `preview.contentful.com`,
       },
     },
     `gatsby-plugin-postcss`,
@@ -122,7 +112,4 @@ module.exports = {
       },
     },
   ],
-  mapping: {
-    "MarkdownRemark.frontmatter.author": `AuthorYaml`,
-  },
 }

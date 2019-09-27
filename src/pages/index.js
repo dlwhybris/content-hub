@@ -12,7 +12,7 @@ class IndexPage extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+    const posts = data.allContentfulBlogPost.edges
     const firstPost = posts[0].node
 
     return (
@@ -45,48 +45,37 @@ class IndexPage extends React.Component {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(
-      limit: 4
-      sort: { order: DESC, fields: frontmatter___date }
-    ) {
+  query Homepage {
+    allContentfulBlogPost {
       edges {
         node {
-          excerpt
-          timeToRead
-          fields {
-            slug
+          authors {
+            firstName
+            lastName
           }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tags
-            description
-            author {
-              name
-              bio
-              avatar {
-                childImageSharp {
-                  fluid(quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+          title
+          tags
+          content {
+            content
+          }
+          cover {
+            sizes(maxWidth: 1280) {
+              ...GatsbyContentfulSizes
             }
-            cover {
-              childImageSharp {
-                sizes(maxWidth: 2000) {
-                  ...GatsbyImageSharpSizes
-                }
-              }
+          }
+          loginRequired
+          publicationDate
+          shortDescription {
+            childMarkdownRemark {
+              excerpt
             }
           }
         }
+      }
+    }
+    site(siteMetadata: {}) {
+      siteMetadata {
+        title
       }
     }
   }

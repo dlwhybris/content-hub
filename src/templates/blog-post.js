@@ -81,7 +81,7 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate
 
-export const pageQuery = graphql`
+/* export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
@@ -119,4 +119,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+` */

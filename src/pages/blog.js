@@ -48,40 +48,5 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          timeToRead
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMM DD")
-            title
-            description
-            tags
-            author {
-              name
-              bio
-              avatar {
-                childImageSharp {
-                  fluid(quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-            cover {
-              childImageSharp {
-                sizes(maxWidth: 2000) {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 `
