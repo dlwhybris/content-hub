@@ -15,11 +15,11 @@ class Card extends React.Component {
         <Link to={`blog${post.slug}`}>
           <div className="pb-1/2 relative">
             {/* Img works with a wrapper, default value is position:relative, overwritten this, object-cover is by default applied on the underlying image tag */}
-            {/*             <Img
-              sizes={post.cover.GatsbyContentfulSizes}
+            <Img
+              sizes={post.cover.fluid}
               className="h-full w-full"
               style={imgageWrapperStyle}
-            /> */}
+            />
           </div>
         </Link>
 

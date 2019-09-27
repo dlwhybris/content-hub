@@ -59,8 +59,8 @@ export const pageQuery = graphql`
             content
           }
           cover {
-            sizes(maxWidth: 1280) {
-              ...GatsbyContentfulSizes
+            fluid(maxWidth: 700) {
+              ...GatsbyContentfulFluid
             }
           }
           loginRequired
