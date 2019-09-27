@@ -20,21 +20,19 @@ function Header() {
               Posts
             </Link>
             <p>
-              <p>
-                {user.name ? (
-                  user.name
-                ) : (
-                  <a
-                    href="#login"
-                    onClick={e => {
-                      login()
-                      e.preventDefault()
-                    }}
-                  >
-                    Login
-                  </a>
-                )}
-              </p>
+              {user.name ? (
+                user.name
+              ) : (
+                <a
+                  href="#login"
+                  onClick={e => {
+                    login()
+                    e.preventDefault()
+                  }}
+                >
+                  Login
+                </a>
+              )}
             </p>
             <section>
               {user.name ? (

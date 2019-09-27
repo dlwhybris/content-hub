@@ -1,11 +1,11 @@
 {
-  "name": "Content Hub",
+  "name": "contenthub",
   "private": true,
   "description": "Content Hub",
   "version": "0.1.0",
   "author": "Eli Colpaert",
   "bugs": {
-    "url": "https://github.com/azer53/gatsby-tailwind-starter/issues"
+    "url": "https://github.com/azer53/content-hub"
   },
   "dependencies": {
     "auth0-js": "^9.11.3",
