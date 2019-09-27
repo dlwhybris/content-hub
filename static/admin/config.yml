@@ -1,6 +1,8 @@
 backend:
-  name: github
-  repo: azer53/gatsby-tailwind-starter
+  name: git-gateway
+  repo: master
+
+publish_mode: editorial_workflow
 
 media_folder: static/assets
 public_folder: /assets
@@ -13,10 +15,14 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - { name: loginRequired, label: Login Required, widget:boolean }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
-      - { name: "cover",label: "Featured Image", widget: "image", required: true}
-      - { name: "tags", label: "Tags",  widget: "list", default: ["news"]}
-      - { name: "author", label: "Author", widget: "select",options: ["eli"]}
-
-
+      - {
+          name: "cover",
+          label: "Featured Image",
+          widget: "image",
+          required: true,
+        }
+      - { name: "tags", label: "Tags", widget: "list", default: ["news"] }
+      - { name: "author", label: "Author", widget: "select", options: ["eli"] }
