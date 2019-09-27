@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Gatsby Tailwind Blog Starter`,
+    title: `Content Hub`,
     author: `Eli Colpaert`,
     description: `Gatsby Tailwind Blog Starter including Netlify CMS`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
@@ -21,7 +21,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static/assets`,
-        name: 'uploads',
+        name: "uploads",
       },
     },
     {
@@ -43,8 +43,8 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         tailwind: true,
-        purgeOnly: [`src/css/style.css`]
-      }
+        purgeOnly: [`src/css/style.css`],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -57,21 +57,21 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
+        name: "pages",
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/templates`,
-        name: 'templates',
+        name: "templates",
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/components`,
-        name: 'components',
+        name: "components",
       },
     },
     {
@@ -105,7 +105,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // edit below
-         trackingId: ``,
+        trackingId: ``,
       },
     },
     {
