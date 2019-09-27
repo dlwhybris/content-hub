@@ -3,15 +3,9 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
-// import { login, isAuthenticated } from "../utils/auth"
 
 class Blog extends React.Component {
   render() {
-    /*     if (!isAuthenticated()) {
-      login()
-      return <p>Redirecting to login...</p>
-    } */
-
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
