@@ -3,10 +3,10 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
-import Auth from "../utils/auth.js"
+// import Auth from "../utils/auth.js"
 
-const auth = new Auth()
-auth.login()
+// const auth = new Auth()
+// auth.login()
 
 class IndexPage extends React.Component {
   render() {
