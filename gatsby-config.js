@@ -17,13 +17,13 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-react-helmet`,
-    {
+    /*     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static/assets`,
         name: "uploads",
       },
-    },
+    }, */
     {
       resolve: `gatsby-source-filesystem`,
       options: {
