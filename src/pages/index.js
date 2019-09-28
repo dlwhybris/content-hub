@@ -18,7 +18,8 @@ class IndexPage extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Homepage" />
-        <main className="py-4 mx-auto max-w-md xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl">
+        {/* <main className="py-4 mx-auto max-w-md xl:max-w-6xl  lg:max-w-4xl md:max-w-4xl sm:max-w-2xl"> */}
+        <main className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl">
           <div className="my-6">{/* <Card post={firstPost} /> */}</div>
           <PostCollection posts={posts} />
         </main>

@@ -7,7 +7,7 @@ function Header() {
   const user = getProfile()
   return (
     <header className="bg-white border-t border-indigo-300 shadow-lg">
-      <nav className="py-4 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex items-center justify-between py-4">
+      <nav className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl   flex items-center justify-between py-4">
         <div className="w-1/2">
           <Logo />
         </div>

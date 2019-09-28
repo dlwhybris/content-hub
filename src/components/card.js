@@ -11,31 +11,34 @@ class Card extends React.Component {
       position: "absolute",
     }
     return (
-      <div className="rounded shadow-lg overflow-hidden bg-white border h-full w-full">
-        <div className="h-full flex flex-col p-6">
-          <div className="flex flex-col justify-between h-1/2">
-            <section>
-              <span className="text-gray-600 text-xs uppercase font-semibold tracking-wide">
-                {post.publicationDate}
-              </span>
-              <Link to={`blog/${post.slug}`}>
-                <h3 className="text-indigo-800 font-semibold text-lg leading-tight mt-1 h-full">
-                  {post.title}
-                </h3>
-              </Link>
-            </section>
-            <div>
-              <p
-                className="text-gray-700 text-base text-xs mt-4 h-1/2"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    post.shortDescription.childMarkdownRemark.excerpt ||
-                    post.content.content,
-                }}
-              />
+      <div className="rounded shadow-lg bg-white border h-full w-full flex-col">
+        <div className="bg-red-400 h-72 w-full">text</div>
+        <div className="flex flex-col p-6">
+          <div className="flex flex-col justify-between">
+            <div className="flex justify-between flex-col h-1/3 border-orange-900 border-2">
+              <div>
+                <span className="text-gray-600 text-xs uppercase font-semibold tracking-wide">
+                  {post.publicationDate}
+                </span>
+                <Link to={`blog/${post.slug}`}>
+                  <h3 className="text-indigo-800 font-semibold text-lg leading-tight mt-1 h-full">
+                    {post.title}
+                  </h3>
+                </Link>
+              </div>
+              <div className="mt-4 h-2/3">
+                <p
+                  className="text-gray-700 text-base text-xs"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      post.shortDescription.childMarkdownRemark.excerpt ||
+                      post.content.content,
+                  }}
+                />
+              </div>
             </div>
           </div>
-          <div className="flex flex-col justify-between mt-4">
+          <div className="flex flex-col justify-between">
             <div className="">
               <Author authors={post.authors} />
             </div>
