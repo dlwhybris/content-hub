@@ -14,8 +14,8 @@ class Card extends React.Component {
       <div className="rounded shadow-lg bg-white border h-full w-full flex-col">
         <div className="bg-red-400 h-24 w-full">text</div>
         <div className="flex flex-col p-6">
-          <div className="flex flex-col justify-between">
-            <div className="flex justify-between flex-col h-1/3 border-orange-900 border-2">
+          <div className="flex flex-col justify-between border-2 border-white mb-2">
+            <div className="flex justify-between flex-col h-1/3 ">
               <div>
                 <span className="text-gray-600 text-xs uppercase font-semibold tracking-wide">
                   {post.publicationDate}
