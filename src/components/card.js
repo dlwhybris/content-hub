@@ -35,7 +35,7 @@ class Card extends React.Component {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-between h-1/2 mt-4">
+          <div className="flex flex-col justify-between mt-4">
             <div className="">
               <Author authors={post.authors} />
             </div>
