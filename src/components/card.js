@@ -36,10 +36,12 @@ class Card extends React.Component {
             </div>
           </div>
           <div className="flex flex-col justify-between h-1/2 mt-4">
-            <div className="h-1/2">
+            <div className="">
               <Author authors={post.authors} />
             </div>
-            <div className="h-1/2">{/* <Tags tags={post.tags} /> */}</div>
+            <div className="">
+              <Tags tags={post.tags} />
+            </div>
           </div>
         </div>
       </div>

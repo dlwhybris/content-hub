@@ -7,16 +7,16 @@ class Tags extends React.Component {
       return <section></section>
     }
     return (
-      <section>
+      <div className="flex flex-row flex-wrap">
         {tags.map(tag => (
-          <span
+          <div
             key={tag}
-            className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-1"
+            className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 my-2"
           >
             {tag}
-          </span>
+          </div>
         ))}
-      </section>
+      </div>
     )
   }
 }
