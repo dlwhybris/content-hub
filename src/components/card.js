@@ -13,7 +13,7 @@ class Card extends React.Component {
     return (
       <div className="rounded shadow-lg overflow-hidden bg-white border h-full w-full">
         <div className="h-full flex flex-col p-6">
-          <div className="flex flex-col justify-between h-full">
+          <div className="flex flex-col justify-between h-1/2">
             <section>
               <span className="text-gray-600 text-xs uppercase font-semibold tracking-wide">
                 {post.publicationDate}
@@ -35,14 +35,11 @@ class Card extends React.Component {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-between h-1/2">
-            <div>
+          <div className="flex flex-col justify-between h-1/2 mt-4">
+            <div className="h-1/2">
               <Author authors={post.authors} />
             </div>
-            <div>
-              {" "}
-              <Tags tags={post.tags} />
-            </div>
+            <div className="h-1/2">{/* <Tags tags={post.tags} /> */}</div>
           </div>
         </div>
       </div>
