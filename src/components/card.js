@@ -11,7 +11,7 @@ class Card extends React.Component {
       backgroundImage: "url(" + post.cover.fluid.src + ")",
     }
     return (
-      <div className="rounded shadow-lg bg-white border h-full w-full flex-col">
+      <div className="rounded shadow-lg bg-white border h-full w-full">
         <div
           className="bg-red-400 h-56 w-full bg-cover rounded-sm"
           style={imageStyle}
