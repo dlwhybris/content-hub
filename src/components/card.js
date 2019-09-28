@@ -13,7 +13,7 @@ class Card extends React.Component {
     return (
       <div className="rounded shadow-lg bg-white border h-full w-full flex-col">
         <div
-          className="bg-red-400 h-56 w-full bg-cover"
+          className="bg-red-400 h-56 w-full bg-cover rounded-sm"
           style={imageStyle}
         ></div>
         <div className="flex flex-col p-6">
