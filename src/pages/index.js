@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
+import PostCollection from "../components/PostCollection"
 // import Auth from "../utils/auth.js"
 
 // const auth = new Auth()
@@ -19,23 +20,8 @@ class IndexPage extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Homepage" />
         <main className="py-4 mx-auto max-w-md xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl">
-          <div className="flex flex-wrap w-full justify-between">
-            {posts.map(({ node }, idx) => {
-              if (idx === 0) return null
-              else
-                return (
-                  <div
-                    key={node.slug}
-                    className="py-4 pr-2 md:w-1/2 xl:w-1/3 w-full flex-grow "
-                  >
-                    <Card post={node} />
-                  </div>
-                )
-            })}
-          </div>
-          <div className="my-6">
-            <Card post={firstPost} />
-          </div>
+          <div className="my-6">{/* <Card post={firstPost} /> */}</div>
+          <PostCollection posts={posts} />
         </main>
       </Layout>
     )
