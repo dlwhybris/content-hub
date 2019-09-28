@@ -11,7 +11,7 @@ class Card extends React.Component {
       position: "absolute",
     }
     return (
-      <div className="rounded shadow-lg overflow-hidden bg-white border">
+      <div className="rounded shadow-lg overflow-hidden bg-white border h-full w-full">
         <Link to={`blog${post.slug}`}>
           <div className="pb-1/2 relative">
             {/* Img works with a wrapper, default value is position:relative, overwritten this, object-cover is by default applied on the underlying image tag */}
