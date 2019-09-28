@@ -26,7 +26,7 @@ class Card extends React.Component {
             </section>
             <div>
               <p
-                className="text-gray-600 text-base text-xs mt-4 h-1/2"
+                className="text-gray-700 text-base text-xs mt-4 h-1/2"
                 dangerouslySetInnerHTML={{
                   __html:
                     post.shortDescription.childMarkdownRemark.excerpt ||
