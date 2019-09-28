@@ -25,7 +25,7 @@ class IndexPage extends React.Component {
               else
                 return (
                   <div
-                    key={node.fields.slug}
+                    key={node.slug}
                     className="py-4 pr-2 md:w-1/2 xl:w-1/3 w-full flex-grow "
                   >
                     <Card post={node} />
