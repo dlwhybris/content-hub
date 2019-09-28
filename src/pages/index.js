@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Card from "../components/card"
 import PostCollection from "../components/PostCollection"
 // import Auth from "../utils/auth.js"
 
@@ -14,7 +13,7 @@ class IndexPage extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulBlogPost.edges
-    const firstPost = posts[0].node
+    //const firstPost = posts[0].node
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -52,6 +51,7 @@ export const pageQuery = graphql`
           }
           title
           tags
+          slug
           content {
             content
           }
