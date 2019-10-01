@@ -12,20 +12,18 @@ class BlogPostTemplate extends React.Component {
       login()
       return <p>Redirecting to login...</p>
     }
-    const post = this.props.data.markdownRemark
+    const post = this.props.data.contentfulBlogPost
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    console.log(post.frontmatter.cover.childImageSharp.fluid.src)
     const imageStyle = {
-      backgroundImage:
-        "url(" + post.frontmatter.cover.childImageSharp.fluid.src + ")",
+      backgroundImage: "url(" + post.cover.fluid.src + ")",
     }
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
+          title={post.title}
+          description={post.description || post.excerpt}
         />
         <div
           className="w-full m-0 p-0 bg-auto md:bg-cover bg-center h-120"
@@ -36,16 +34,14 @@ class BlogPostTemplate extends React.Component {
           <section className=" mx-6 md:mx-20 text-gray-900 font-thin text-xl tracking-wider leading-relaxed pb-12">
             <div className="min-w-full flex flex-col md:flex-row md:items-center md:justify-between py-8">
               <section className="flex flex-col w-full lg:w-3/4">
-                <span className="text-sm text-gray-800">
-                  {post.frontmatter.date}
-                </span>
+                <span className="text-sm text-gray-800">{post.date}</span>
                 <h1 className="text-5xl text-gray-700 font-medium">
-                  {post.frontmatter.title}
+                  {post.title}
                 </h1>
               </section>
               <section className="w-full lg:w-1/4">
                 <div className="flex flex-row lg:flex-col lg:justify-between my-4 lg:my-0 text-gray-700 w-3/4 lg:float-right">
-                  <Tags tags={post.frontmatter.tags} />
+                  <Tags tags={post.tags} />
                 </div>
               </section>
             </div>
@@ -54,20 +50,20 @@ class BlogPostTemplate extends React.Component {
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
             <section>
-              <Author author={post.frontmatter.author} />
+              <Author author={post.authors[0]} />
             </section>
             <ul className="mt-8 font-semibold text-sm">
               <li className="float-left">
                 {previous && (
-                  <Link to={`blog${previous.fields.slug}`} rel="prev">
-                    ← {previous.frontmatter.title}
+                  <Link to={`blog/${previous.slug}`} rel="prev">
+                    ← {previous.title}
                   </Link>
                 )}
               </li>
               <li className="float-right">
                 {next && (
-                  <Link to={`blog${next.fields.slug}`} rel="next">
-                    {next.frontmatter.title} →
+                  <Link to={`blog/${next.slug}`} rel="next">
+                    {next.title} →
                   </Link>
                 )}
               </li>
@@ -81,7 +77,7 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate
 
-/* export const pageQuery = graphql`
+export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
@@ -89,34 +85,34 @@ export default BlogPostTemplate
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        tags
-        date(formatString: "MMMM DD, YYYY")
-        description
-        author {
-          name
-          bio
-          avatar {
-            childImageSharp {
-              fluid(quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-        cover {
-          childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+    contentfulBlogPost(slug: { eq: $slug }) {
+      cover {
+        fluid(maxWidth: 700) {
+          ...GatsbyContentfulFluid
         }
       }
+      content {
+        content
+      }
+      loginRequired
+      slug
+      tags
+      title
+      authors {
+        id
+        avatar {
+          fluid {
+            src
+          }
+        }
+        bio {
+          bio
+        }
+        firstName
+        lastName
+        jobTitle
+      }
+      publicationDate(formatString: "MMMM Do, YYYY")
     }
   }
-` */
+`

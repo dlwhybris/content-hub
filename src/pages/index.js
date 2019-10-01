@@ -62,7 +62,7 @@ export const pageQuery = graphql`
             }
           }
           loginRequired
-          publicationDate
+          publicationDate(formatString: "MMMM Do, YYYY")
           shortDescription {
             childMarkdownRemark {
               excerpt
