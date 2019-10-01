@@ -12,16 +12,23 @@ function Header() {
           <Logo />
         </div>
         <div className="w-1/2">
-          <div className="text-xs sm:text-sm flex justify-around">
-            {/* <Link
-              to="/blog"
-              className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 tracking-wider font-semibold hover:text-indigo-500 mr-4"
-            >
-              Posts
-            </Link> */}
-            <p>
+          <div className="text-xs sm:text-sm flex float-right">
+            <section>
               {user.name ? (
-                user.name
+                <span>
+                  <a
+                    href="#logout"
+                    onClick={e => {
+                      logout()
+                      e.preventDefault()
+                    }}
+                  >
+                    Log Out
+                  </a>
+                  <span className="text-gray-600 text-sm">
+                    &nbsp;({user.name})
+                  </span>
+                </span>
               ) : (
                 <a
                   href="#login"
@@ -32,21 +39,6 @@ function Header() {
                 >
                   Login
                 </a>
-              )}
-            </p>
-            <section>
-              {user.name ? (
-                <a
-                  href="#logout"
-                  onClick={e => {
-                    logout()
-                    e.preventDefault()
-                  }}
-                >
-                  Log Out
-                </a>
-              ) : (
-                ""
               )}
             </section>
           </div>

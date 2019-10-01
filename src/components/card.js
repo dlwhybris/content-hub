@@ -6,6 +6,7 @@ import Author from "./author"
 class Card extends React.Component {
   render() {
     const post = this.props.post
+    console.log(post)
     const imageStyle = {
       backgroundImage: "url(" + post.cover.fluid.src + ")",
     }
@@ -15,6 +16,7 @@ class Card extends React.Component {
           className="bg-red-400 h-56 w-full bg-cover rounded-sm"
           style={imageStyle}
         ></div>
+
         <div className="flex flex-col p-6">
           <div className="flex flex-col justify-between border-2 border-white mb-2">
             <div className="flex justify-between flex-col h-1/3 ">
@@ -46,6 +48,14 @@ class Card extends React.Component {
             </div>
             <div className="">
               <Tags tags={post.tags} />
+
+              {post.loginRequired ? (
+                <p className="bg-indigo-100 text-indigo-900 border-indigo-900 border-2 rounded-full w-3/12 py-2 px-1 text-center float-right">
+                  Premium
+                </p>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

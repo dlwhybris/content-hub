@@ -10,11 +10,13 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    if (!isAuthenticated()) {
+    const post = this.props.data.contentfulBlogPost
+    const premiumContent = post.loginRequired
+
+    if (!isAuthenticated() && premiumContent) {
       login()
       return <p>Redirecting to login...</p>
     }
-    const post = this.props.data.contentfulBlogPost
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
     const imageStyle = {
