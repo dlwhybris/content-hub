@@ -13,12 +13,12 @@ function Header() {
         </div>
         <div className="w-1/2">
           <div className="text-xs sm:text-sm flex justify-around">
-            <Link
+            {/* <Link
               to="/blog"
               className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 tracking-wider font-semibold hover:text-indigo-500 mr-4"
             >
               Posts
-            </Link>
+            </Link> */}
             <p>
               {user.name ? (
                 user.name

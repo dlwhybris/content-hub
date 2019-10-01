@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import Tags from "../components/tags"
 import Author from "../components/author"
 import { login, isAuthenticated } from "../utils/auth"
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 class BlogPostTemplate extends React.Component {
@@ -22,16 +22,36 @@ class BlogPostTemplate extends React.Component {
     }
 
     const Bold = ({ children }) => (
-      <span className="font-semibold ">{children}</span>
+      <span className="font-normal ">{children}</span>
     )
-    const Text = ({ children }) => <p className="align-center">{children}</p>
+    const Text = ({ children }) => (
+      <p className="leading-relaxed tracking-wider">{children}</p>
+    )
 
     const options = {
       renderMark: {
         [MARKS.BOLD]: text => <Bold>{text}</Bold>,
       },
       renderNode: {
-        [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+        [BLOCKS.PARAGRAPH]: (post, children) => (
+          <Text className="m-8">{children}</Text>
+        ),
+        [BLOCKS.HEADING_1]: (post, children) => (
+          <Text className="font-medium text-4xl mt-4 py-2">{children}</Text>
+        ),
+        [BLOCKS.HEADING_2]: (post, children) => (
+          <Text className="font-medium text-3xl mt-4 py-2">{children}</Text>
+        ),
+        [BLOCKS.HEADING_3]: (post, children) => (
+          <Text className="font-medium text-2xl mt-4 py-2">{children}</Text>
+        ),
+        [BLOCKS.HEADING_4]: (post, children) => (
+          <h3 className="font-medium text-xl mt-4 py-2">{children}</h3>
+        ),
+        [BLOCKS.QUOTE]: (post, children) => <q className="my-12">{children}</q>,
+        [INLINES.HYPERLINK]: (post, children) => (
+          <Text className="text-indigo-700 font-semibold">{children}</Text>
+        ),
       },
     }
     const postContent = documentToReactComponents(post.content.json, options)
@@ -101,7 +121,7 @@ export const pageQuery = graphql`
     }
     contentfulBlogPost(slug: { eq: $slug }) {
       cover {
-        fluid(maxWidth: 700) {
+        fluid(maxWidth: 1500) {
           ...GatsbyContentfulFluid
         }
       }
