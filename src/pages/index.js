@@ -13,7 +13,6 @@ class IndexPage extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulBlogPost.edges
-    //const firstPost = posts[0].node
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
