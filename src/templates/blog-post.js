@@ -34,23 +34,25 @@ class BlogPostTemplate extends React.Component {
       },
       renderNode: {
         [BLOCKS.PARAGRAPH]: (post, children) => (
-          <Text className="m-8">{children}</Text>
+          <p className="m-8">{children}</p>
         ),
         [BLOCKS.HEADING_1]: (post, children) => (
-          <Text className="font-medium text-4xl mt-4 py-2">{children}</Text>
+          <h1 className="font-medium text-4xl mt-4 py-2">{children}</h1>
         ),
         [BLOCKS.HEADING_2]: (post, children) => (
-          <Text className="font-medium text-3xl mt-4 py-2">{children}</Text>
+          <h2 className="font-medium text-3xl mt-4 py-2">{children}</h2>
         ),
         [BLOCKS.HEADING_3]: (post, children) => (
-          <Text className="font-medium text-2xl mt-4 py-2">{children}</Text>
+          <h3 className="font-medium text-2xl mt-4 py-2">{children}</h3>
         ),
         [BLOCKS.HEADING_4]: (post, children) => (
-          <h3 className="font-medium text-xl mt-4 py-2">{children}</h3>
+          <h4 className="font-medium text-xl mt-4 py-2">{children}</h4>
         ),
         [BLOCKS.QUOTE]: (post, children) => <q className="my-12">{children}</q>,
         [INLINES.HYPERLINK]: (post, children) => (
-          <Text className="text-indigo-700 font-semibold">{children}</Text>
+          <a className="text-indigo-700 font-semibold cursor-pointer border-b border-indigo-500">
+            {children}
+          </a>
         ),
       },
     }
