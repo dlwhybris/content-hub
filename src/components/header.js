@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import React from "react"
 import Logo from "./logo"
 import { getProfile, logout, login } from "../utils/auth"
@@ -7,18 +7,18 @@ function Header() {
   const user = getProfile()
   return (
     <header className="bg-white border-t border-indigo-300 shadow-lg">
-      <nav className="py-4 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex items-center justify-between py-4">
+      <nav className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl   flex items-center justify-between py-4">
         <div className="w-1/2">
           <Logo />
         </div>
         <div className="w-1/2">
           <div className="text-xs sm:text-sm flex justify-around">
-            <Link
+            {/* <Link
               to="/blog"
               className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 tracking-wider font-semibold hover:text-indigo-500 mr-4"
             >
               Posts
-            </Link>
+            </Link> */}
             <p>
               {user.name ? (
                 user.name
