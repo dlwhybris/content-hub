@@ -5,6 +5,8 @@ import SEO from "../components/seo"
 import Tags from "../components/tags"
 import Author from "../components/author"
 import { login, isAuthenticated } from "../utils/auth"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -18,6 +20,21 @@ class BlogPostTemplate extends React.Component {
     const imageStyle = {
       backgroundImage: "url(" + post.cover.fluid.src + ")",
     }
+
+    const Bold = ({ children }) => (
+      <span className="font-semibold ">{children}</span>
+    )
+    const Text = ({ children }) => <p className="align-center">{children}</p>
+
+    const options = {
+      renderMark: {
+        [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+      },
+      renderNode: {
+        [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+      },
+    }
+    const postContent = documentToReactComponents(post.content.json, options)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -45,12 +62,9 @@ class BlogPostTemplate extends React.Component {
                 </div>
               </section>
             </div>
-            <div
-              className="py-8 border-b border-gray-400"
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
+            <div className="py-8 border-b border-gray-400">{postContent} </div>
             <section>
-              <Author author={post.authors[0]} />
+              <Author authors={post.authors} />
             </section>
             <ul className="mt-8 font-semibold text-sm">
               <li className="float-left">
@@ -92,7 +106,7 @@ export const pageQuery = graphql`
         }
       }
       content {
-        content
+        json
       }
       loginRequired
       slug
@@ -106,7 +120,10 @@ export const pageQuery = graphql`
           }
         }
         bio {
-          bio
+          childMarkdownRemark {
+            excerpt
+            html
+          }
         }
         firstName
         lastName

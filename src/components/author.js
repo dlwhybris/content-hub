@@ -4,7 +4,6 @@ import Img from "gatsby-image"
 class Author extends React.Component {
   render() {
     const authors = this.props.authors
-    console.log(authors)
     if (!authors) {
       return null
     }

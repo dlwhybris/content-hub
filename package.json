@@ -8,6 +8,7 @@
     "url": "https://github.com/azer53/content-hub"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
     "auth0-js": "^9.11.3",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.3.25",
