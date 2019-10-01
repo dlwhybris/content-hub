@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
 import Tags from "./tags"
 import Author from "./author"
 
