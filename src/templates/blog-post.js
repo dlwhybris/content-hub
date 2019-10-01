@@ -34,7 +34,7 @@ class BlogPostTemplate extends React.Component {
       },
       renderNode: {
         [BLOCKS.PARAGRAPH]: (post, children) => (
-          <p className="m-8">{children}</p>
+          <p className="mt-4 p-2 ">{children}</p>
         ),
         [BLOCKS.HEADING_1]: (post, children) => (
           <h1 className="font-medium text-4xl mt-4 py-2">{children}</h1>
