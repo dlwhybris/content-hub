@@ -29,7 +29,7 @@ function Logo() {
         </svg>
       </Link>
       <Link to="/">
-        <span className="text-gray-700 text-2xl tracking-widest">
+        <span className="text-2xl tracking-widest">
           {data.site.siteMetadata.title}
         </span>
       </Link>

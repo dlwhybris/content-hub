@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostCollection from "../components/PostCollection"
+import Hero from "../components/Hero"
 // import Auth from "../utils/auth.js"
 
 // const auth = new Auth()
@@ -17,9 +18,10 @@ class IndexPage extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Homepage" />
-        {/* <main className="py-4 mx-auto max-w-md xl:max-w-6xl  lg:max-w-4xl md:max-w-4xl sm:max-w-2xl"> */}
+        <Hero />
+
         <main className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl">
-          <div className="my-6">{/* <Card post={firstPost} /> */}</div>
+          <div className="my-6"></div>
           <PostCollection posts={posts} />
         </main>
       </Layout>

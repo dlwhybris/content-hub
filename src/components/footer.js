@@ -36,9 +36,9 @@ function Footer() {
           </div>
         </nav>
       </div>
-      <p className="text-center text-indigo-800 text-xs tracking-widest p-2 border-t-2 border-gray-300">
+      <p className="text-center text-red-800 text-xs tracking-widest p-2 border-t-2 border-gray-300">
         By&nbsp;
-        <Link className="hover:text-indigo-900 font-semibold " to="/about-us">
+        <Link className="hover:text-red-900 font-semibold " to="/about-us">
           Eli
         </Link>
       </p>

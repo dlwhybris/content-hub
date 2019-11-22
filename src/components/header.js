@@ -6,7 +6,7 @@ import { getProfile, logout, login } from "../utils/auth"
 function Header() {
   const user = getProfile()
   return (
-    <header className="bg-white border-t border-indigo-300 shadow-lg">
+    <header className="bg-red-500  shadow-lg text-white">
       <nav className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl   flex items-center justify-between py-4">
         <div className="w-1/2">
           <Logo />
@@ -25,7 +25,7 @@ function Header() {
                   >
                     Log Out
                   </a>
-                  <span className="text-gray-600 text-sm">
+                  <span className="text-white text-sm">
                     &nbsp;({user.name})
                   </span>
                 </span>

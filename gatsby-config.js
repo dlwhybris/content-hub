@@ -23,8 +23,6 @@ module.exports = {
       options: {
         spaceId: `l8waisr0oq28`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
-        host: `preview.contentful.com`,
       },
     },
     `gatsby-plugin-postcss`,
