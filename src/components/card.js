@@ -14,7 +14,14 @@ class Card extends React.Component {
         <div
           className="bg-white h-88 w-full bg-cover rounded-sm"
           style={imageStyle}
-        ></div>
+        >
+          {/* <div className="bg-red-500 h-12 w-12 float-right"></div> */}
+          {post.loginRequired ? (
+            <div className="triangle-topright float-right"></div>
+          ) : (
+            ""
+          )}
+        </div>
 
         <div className="flex flex-col p-6">
           <div className="flex flex-col justify-between border-2 border-white mb-2">
@@ -26,7 +33,7 @@ class Card extends React.Component {
                 </span>
                 {post.authors && post.authors[0] ? (
                   <span className="text-gray-600 text-xs font-semibold tracking-wide">
-                    &nbsp;By &nbsp;
+                    &nbsp;By&nbsp;
                     {post.authors && post.authors[0].firstName}
                     &nbsp;
                     {post.authors && post.authors[0].lastName}
@@ -41,17 +48,6 @@ class Card extends React.Component {
                   </h3>
                 </Link>
               </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-between">
-            <div className="">
-              {post.loginRequired ? (
-                <p className="bg-red-100 text-red-900 border-red-900 border-2 rounded-full w-3/12 py-2 px-1 text-center float-right">
-                  Premium
-                </p>
-              ) : (
-                ""
-              )}
             </div>
           </div>
         </div>
