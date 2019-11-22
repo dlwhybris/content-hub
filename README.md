@@ -1,4 +1,3 @@
-
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
@@ -8,12 +7,16 @@
 </a>
 </p>
 <h1 align="center">
-  Gatsby-Tailwind-Blog-Starter
+<a href="https://flamboyant-beaver-61051a.netlify.com/" target="_blank">
+Delaware Content Hub
+  </a>
+
 </h1>
-A Blog starter for Gatsby powered by Tailwind. Netlify CMS support is foreseen as well
 
 ## 🚀 Quick start
 
+[Live demo](https://flamboyant-beaver-61051a.netlify.com/)
+[design](https://delawareconsulting.invisionapp.com/share/6BUVLEBGAYQ#/394049433_Content_Hub-Homepage-1920-1140_Copy)
 
 1.  **Installation**
 
@@ -42,11 +45,14 @@ For full documentation, visit [tailwindcss.com](https://tailwindcss.com/).
 
 - **For testing purposes without any installation, you can start with [Tailwind Run](https://tailwind.run/new).** It's a browser based editor loading Tailwind by default so you can play around
 
+## 🎓 Auth0
 
-## 📔 Learning Netlify CMS with Gatsby
+For full documentation, visit [auth0.com](https://auth0.com/).
 
-Start from [this point](https://www.gatsbyjs.org/docs/sourcing-from-netlify-cms/#authenticating-with-github) in the Gatsby documentation to finish the set up for your personal Netlify CMS with authentication.
+## 🎓 Netlify
 
-## 💫 Deploy
+For full documentation, visit [Netlify.com](https://netlify.com/).
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://https://github.com/azer53/gatsby-tailwind-starter)
+## 🎓 Contentful
+
+For full documentation, visit [contentful.com](https://contentful.com/).
