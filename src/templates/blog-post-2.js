@@ -7,6 +7,7 @@ import Author from "../components/author"
 import { login, isAuthenticated } from "../utils/auth"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import Img from "gatsby-image"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -33,7 +34,7 @@ class BlogPostTemplate extends React.Component {
           <p className="mt-4 ">{children}</p>
         ),
         [BLOCKS.HEADING_1]: (post, children) => (
-          <h1 className="font-medium text-6xl text-red-500 mt-4 py-2">
+          <h1 className="font-medium text-3xl mt-4 py-2 text-red-500">
             {children}
           </h1>
         ),
@@ -96,9 +97,8 @@ class BlogPostTemplate extends React.Component {
               </p>
             </div>
             <div className="w-1/2">
-              <img
-                src="https://source.unsplash.com/random"
-                alt=""
+              <Img
+                fluid={post.cover.fluid}
                 className="h-120 object-cover w-full "
               />
             </div>
@@ -106,7 +106,7 @@ class BlogPostTemplate extends React.Component {
         </section>
         <section className="bg-gray-100">
           <div className="mx-auto max-w-xs xl:max-w-4xl lg:max-w-2xl md:max-w-lg sm:max-w-md">
-            <article className="py-8 px-12 text-gray-900 tracking-wide leading-relaxed">
+            <article className="py-8 px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
               {postContent}
             </article>
             <div className="pt-2  px-8 border-t-2 border-gray-500">
