@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Tags from "./tags"
-import Author from "./author"
+import CardAuthor from "./CardAuthor"
 
 class Card extends React.Component {
   render() {
@@ -27,23 +26,20 @@ class Card extends React.Component {
           <div className="flex flex-col justify-between border-2 border-white mb-2">
             <div className="flex justify-between flex-col">
               <div>
-                <Tags tags={post.tags} />
-                <span className="text-gray-600 text-xs font-semibold tracking-wide">
-                  {post.publicationDate}
-                </span>
-                {post.authors && post.authors[0] ? (
-                  <span className="text-gray-600 text-xs font-semibold tracking-wide">
-                    &nbsp;By&nbsp;
-                    {post.authors && post.authors[0].firstName}
-                    &nbsp;
-                    {post.authors && post.authors[0].lastName}
-                  </span>
-                ) : (
-                  <></>
-                )}
+                <div className="mb-6">
+                  {post.authors && post.authors[0] ? (
+                    <CardAuthor
+                      author={post.authors[0]}
+                      publicationDate={post.publicationDate}
+                      tags={post.tags}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </div>
 
                 <Link to={`blog/${post.slug}`}>
-                  <h3 className="text-gray-900 font-semibold text-lg leading-tight mt-1 h-full">
+                  <h3 className="text-gray-900 font-semibold text-xl leading-tight mt-1 h-full">
                     {post.title}
                   </h3>
                 </Link>

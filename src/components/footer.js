@@ -4,7 +4,7 @@ import Logo from "./logo"
 
 function Footer() {
   return (
-    <footer className="bg-gray-200">
+    <footer className="bg-white">
       <div className="py-4 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl">
         <nav className="flex items-center justify-between flex-wrap">
           <Logo />
