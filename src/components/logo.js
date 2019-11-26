@@ -1,24 +1,25 @@
-import { Link } from "gatsby"
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
 
-function Logo() {
+const Logo = () => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+    {
+      file(relativePath: { eq: "d-logo.png" }) {
+        relativePath
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
   `)
-
   return (
-    <div className="flex items-center flex-shrink-0 mr-4">
+    <div className="block w-32 pt-2">
       <Link to="/">
-        <span className="text-2xl tracking-widest">
-          {data.site.siteMetadata.title}
-        </span>
+        <Img fluid={data.file.childImageSharp.fluid} />
       </Link>
     </div>
   )

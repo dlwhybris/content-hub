@@ -40,8 +40,8 @@ export const pageQuery = graphql`
             firstName
             lastName
             avatar {
-              fluid(maxWidth: 700) {
-                ...GatsbyContentfulFluid
+              fluid(maxWidth: 50) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             bio {
@@ -58,8 +58,8 @@ export const pageQuery = graphql`
             content
           }
           cover {
-            fluid(maxWidth: 700) {
-              ...GatsbyContentfulFluid
+            fluid(maxWidth: 1200) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           loginRequired
