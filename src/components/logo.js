@@ -17,7 +17,7 @@ const Logo = () => {
     }
   `)
   return (
-    <div className="block w-32 pt-2">
+    <div className="block w-32 mt-2 h-full">
       <Link to="/">
         <Img fluid={data.file.childImageSharp.fluid} />
       </Link>

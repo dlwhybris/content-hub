@@ -17,43 +17,41 @@ function Header() {
     }
   `)
   return (
-    <header className="bg-red-500 py-4 shadow-lg text-white flex content-around px-8">
-      <div className="flex content-center">
+    <header className="bg-red-500 py-4 shadow-lg text-white flex px-8">
+      <div className="flex flex-col md:flex-row">
         <Logo />
         <Link to="/">
-          <div className="text-3xl tracking-wide uppercase ml-4">
+          <div className="text-xl md:text-3xl tracking-wide uppercase md:ml-4">
             {data.site.siteMetadata.title}
           </div>
         </Link>
       </div>
       <div className="flex-grow">
-        <div className="sm:text-sm float-right">
-          <section>
-            {user.name ? (
-              <span>
-                <a
-                  href="#logout"
-                  onClick={e => {
-                    logout()
-                    e.preventDefault()
-                  }}
-                >
-                  Log Out
-                </a>
-                <span className="text-white text-sm">&nbsp;({user.name})</span>
-              </span>
-            ) : (
+        <div className="sm:text-sm float-right mt-3">
+          {user.name ? (
+            <span>
               <a
-                href="#login"
+                href="#logout"
                 onClick={e => {
-                  login()
+                  logout()
                   e.preventDefault()
                 }}
               >
-                Login
+                Log Out
               </a>
-            )}
-          </section>
+              <span className="text-white text-sm">&nbsp;({user.name})</span>
+            </span>
+          ) : (
+            <a
+              href="#login"
+              onClick={e => {
+                login()
+                e.preventDefault()
+              }}
+            >
+              Login
+            </a>
+          )}
         </div>
       </div>
     </header>
