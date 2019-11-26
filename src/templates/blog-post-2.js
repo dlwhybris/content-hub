@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tags from "../components/tags"
@@ -19,15 +19,9 @@ class BlogPostTemplate extends React.Component {
     }
     const siteTitle = post.title
     const { previous, next } = this.props.pageContext
-    const imageStyle = {
-      backgroundImage: "url(" + post.cover.fluid.src + ")",
-    }
 
     const Bold = ({ children }) => (
-      <span className="font-normal ">{children}</span>
-    )
-    const Text = ({ children }) => (
-      <p className="leading-relaxed tracking-wider">{children}</p>
+      <span className="font-bold ">{children}</span>
     )
 
     const options = {
@@ -36,7 +30,7 @@ class BlogPostTemplate extends React.Component {
       },
       renderNode: {
         [BLOCKS.PARAGRAPH]: (post, children) => (
-          <p className="mt-4 p-2 ">{children}</p>
+          <p className="mt-4 ">{children}</p>
         ),
         [BLOCKS.HEADING_1]: (post, children) => (
           <h1 className="font-medium text-6xl text-red-500 mt-4 py-2">
@@ -53,12 +47,18 @@ class BlogPostTemplate extends React.Component {
             {children}
           </h3>
         ),
-        [BLOCKS.HEADING_4]: (post, children) => (
-          <h4 className="font-medium text-xl mt-4 py-2 font-bold text-gray-800">
-            {children}
-          </h4>
+        [BLOCKS.UL_LIST]: (post, children) => (
+          <ul className="list-disc pl-4"> {children}</ul>
         ),
-        [BLOCKS.QUOTE]: (post, children) => <q className="my-12">{children}</q>,
+        [BLOCKS.OL_LIST]: (post, children) => (
+          <ol className="list-decimal text-red-500 pl-4"> {children}</ol>
+        ),
+        [BLOCKS.LIST_ITEM]: (post, children) => (
+          <li className="text-gray-900"> {children}</li>
+        ),
+        [BLOCKS.QUOTE]: (post, children) => (
+          <q className="italic font-light">{children}</q>
+        ),
         [INLINES.HYPERLINK]: (post, children) => (
           <a className="text-red-500 font-semibold cursor-pointer border-b border-red-500">
             {children}
@@ -104,7 +104,7 @@ class BlogPostTemplate extends React.Component {
         </section>
         <section className="bg-gray-100">
           <div className="mx-auto max-w-xs xl:max-w-4xl lg:max-w-2xl md:max-w-lg sm:max-w-md">
-            <article className="py-8 px-8 text-gray-900 tracking-wide leading-relaxed">
+            <article className="py-8 px-12 text-gray-900 tracking-wide leading-relaxed">
               {postContent}
             </article>
             <div className="pt-2  px-8 border-t-2 border-gray-500">
