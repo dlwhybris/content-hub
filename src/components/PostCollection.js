@@ -8,7 +8,7 @@ export default class PostCollection extends Component {
       <div className="flex flex-wrap justify-start">
         {posts.map(({ node }, idx) => {
           return (
-            <div key={node.slug} className="xl:w-1/2 p-2">
+            <div key={node.slug} className="xl:w-1/2 p-2 flex-grow">
               <Card post={node} />
             </div>
           )

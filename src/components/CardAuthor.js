@@ -5,7 +5,7 @@ import Tags from "./tags"
 const CardAuthor = ({ author, publicationDate, tags }) => {
   return (
     <div className="flex">
-      <div className="mx-auto md:m-0">
+      <div>
         <Img sizes={author.avatar.fluid} className="rounded-full w-12 h-12" />
       </div>
       <div className="mx-2">
