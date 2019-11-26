@@ -39,16 +39,24 @@ class BlogPostTemplate extends React.Component {
           <p className="mt-4 p-2 ">{children}</p>
         ),
         [BLOCKS.HEADING_1]: (post, children) => (
-          <h1 className="font-medium text-4xl mt-4 py-2">{children}</h1>
+          <h1 className="font-medium text-6xl text-red-500 mt-4 py-2">
+            {children}
+          </h1>
         ),
         [BLOCKS.HEADING_2]: (post, children) => (
-          <h2 className="font-medium text-3xl mt-4 py-2">{children}</h2>
+          <h2 className="font-medium text-3xl mt-4 py-2 text-red-500">
+            {children}
+          </h2>
         ),
         [BLOCKS.HEADING_3]: (post, children) => (
-          <h3 className="font-medium text-2xl mt-4 py-2">{children}</h3>
+          <h3 className="font-medium text-2xl mt-4 py-2 text-red-500">
+            {children}
+          </h3>
         ),
         [BLOCKS.HEADING_4]: (post, children) => (
-          <h4 className="font-medium text-xl mt-4 py-2">{children}</h4>
+          <h4 className="font-medium text-xl mt-4 py-2 font-bold text-gray-800">
+            {children}
+          </h4>
         ),
         [BLOCKS.QUOTE]: (post, children) => <q className="my-12">{children}</q>,
         [INLINES.HYPERLINK]: (post, children) => (
@@ -66,48 +74,44 @@ class BlogPostTemplate extends React.Component {
           title={post.title}
           description={post.description || post.excerpt}
         />
-        <div
-          className="w-full m-0 p-0 bg-auto md:bg-cover bg-center h-120"
-          style={imageStyle}
-        ></div>
-
-        <main className="mx-auto max-w-md xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl -mt-32 mb-12 rounded-lg bg-white mb-8 shadow-xl static">
-          <section className=" mx-6 md:mx-20 text-gray-900 font-thin text-xl tracking-wider leading-relaxed pb-12">
-            <div className="min-w-full flex flex-col md:flex-row md:items-center md:justify-between py-8">
-              <section className="flex flex-col w-full lg:w-3/4">
-                <span className="text-sm text-gray-800">{post.date}</span>
-                <h1 className="text-5xl text-gray-700 font-medium">
-                  {post.title}
-                </h1>
-              </section>
-              <section className="w-full lg:w-1/4">
-                <div className="flex flex-row lg:flex-col lg:justify-between my-4 lg:my-0 text-gray-700 w-3/4 lg:float-right">
-                  <Tags tags={post.tags} />
-                </div>
-              </section>
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex">
+            <div className="w-1/2 pr-16">
+              <div className="my-6 text-gray-700 tracking-wide font-semibold text-sm">
+                {post.publicationDate}
+                <Tags tags={post.tags} />
+              </div>
+              <h1 className="my-6 text-gray-900 tracking-wide text-3xl font-semibold">
+                {post.title}
+              </h1>
+              <p className="my-6 text-gray-700 tracking-wide text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Euismod lacinia at quis risus sed vulputate odio ut. Quis lectus
+                nulla at volutpat diam. Ornare arcu dui vivamus arcu felis
+                bibendum ut tristique. Elit eget gravida cum sociis natoque
+                penatibus et.
+              </p>
             </div>
-            <div className="py-8 border-b border-gray-400">{postContent} </div>
-            <section>
+            <div className="w-1/2">
+              <img
+                src="https://source.unsplash.com/random"
+                alt=""
+                className="h-120 object-cover w-full "
+              />
+            </div>
+          </div>
+        </section>
+        <section className="bg-gray-100">
+          <div className="mx-auto max-w-xs xl:max-w-4xl lg:max-w-2xl md:max-w-lg sm:max-w-md">
+            <article className="py-8 px-8 text-gray-900 tracking-wide leading-relaxed">
+              {postContent}
+            </article>
+            <div className="pt-2  px-8 border-t-2 border-gray-500">
               <Author authors={post.authors} />
-            </section>
-            <ul className="mt-8 font-semibold text-sm">
-              <li className="float-left">
-                {previous && (
-                  <Link to={`blog/${previous.slug}`} rel="prev">
-                    ← {previous.title}
-                  </Link>
-                )}
-              </li>
-              <li className="float-right">
-                {next && (
-                  <Link to={`blog/${next.slug}`} rel="next">
-                    {next.title} →
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </section>
-        </main>
+            </div>
+          </div>
+        </section>
       </Layout>
     )
   }
@@ -116,7 +120,7 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug2($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       cover {
         fluid(maxWidth: 1200) {

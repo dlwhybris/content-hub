@@ -5,8 +5,8 @@ const Hero = () => {
   return (
     <div className="bg-gray-100 relative">
       <img
-        // src={DemoImage}
-        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3750&q=80&sat=-80&blend=F9B5B1&blend-mode=multiply"
+        src={DemoImage}
+        // src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3750&q=80&sat=-80&blend=F9B5B1&blend-mode=multiply"
         className="object-cover w-full h-96"
         alt="Content hub delaware"
       />
