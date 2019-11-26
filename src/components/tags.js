@@ -11,7 +11,7 @@ class Tags extends React.Component {
         {tags.map(tag => (
           <div
             key={tag}
-            className="text-sm font-bold text-red-500 mr-2 pr-2 border-r border-red-500 uppercase"
+            className="text-sm font-bold text-red-500 border-r border-red-500 uppercase last:border-r-0 px-2 first:pl-0 last:pr-0"
           >
             {tag}
           </div>

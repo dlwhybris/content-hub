@@ -51,6 +51,9 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    borderWidth: ["responsive", "first", "last", "hover", "focus"],
+    padding: ["responsive", "first", "last", "hover", "focus"],
+  },
   plugins: [],
 }

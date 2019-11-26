@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "prettier": "^1.17.0",
-    "tailwindcss": "^1.1.0"
+    "tailwindcss": "^1.1.4"
   },
   "homepage": "https://https://github.com/azer53/gatsby-tailwind-starter#readme",
   "keywords": [
