@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tags from "../components/tags"
+import TestComponent from "../components/TestComponent.js"
 import Author from "../components/author"
 import { login, isAuthenticated } from "../utils/auth"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
@@ -77,9 +78,10 @@ class BlogPostTemplate extends React.Component {
           title={post.title}
           description={post.description || post.excerpt}
         />
+        <TestComponent />
         <section className="bg-white">
           <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex">
-            <div className="w-1/3">
+            <div className="w-1/3 relative">
               <div className="my-16 text-gray-700 tracking-wide font-semibold text-sm -mr-64 bg-gray-300">
                 {post.publicationDate}
                 <h1 className="mt-6 mb-2 text-gray-900 tracking-wide text-3xl font-semibold">
@@ -92,14 +94,14 @@ class BlogPostTemplate extends React.Component {
                 <Author authors={post.authors} />
               </div>
             </div>
-            <div className="w-2/3">
+            <div className="w-2/3 relative">
               {/*               <Img
                 fluid={post.cover.fluid}
                 className="h-120 object-cover w-full "
               /> */}
               <img
                 src="https://source.unsplash.com/random"
-                className="h-120 object-cover w-full relative"
+                className="h-120 object-cover w-full absolute"
                 alt=""
               />
               <div className="mx-auto max-w-xs xl:max-w-4xl lg:max-w-2xl md:max-w-lg sm:max-w-md">
