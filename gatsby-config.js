@@ -105,7 +105,7 @@ module.exports = {
         theme_color: `#F7FAFC`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/logo.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
   ],

@@ -4,16 +4,13 @@
 
 @tailwind utilities;
 
-/* .triangle-topright {
-  width: 0;
-  height: 0;
-  border-top: 100px solid red;
-  border-left: 100px solid transparent;
-} */
-
 .triangle-topright {
   width: 0;
   height: 0;
   border-top: 55px solid#EF463C;
   border-left: 55px solid transparent;
+}
+
+.rotate-180 {
+  transform: translate(-50%, -50%);
 }
