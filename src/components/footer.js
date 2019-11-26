@@ -5,7 +5,7 @@ import Logo from "./logo"
 function Footer() {
   return (
     <footer className="bg-white">
-      <div className="py-4 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl">
+      <div className="py-8 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl">
         <nav className="flex items-center justify-center">
           <div className="text-2xl text-gray-600 font-semibold mr-4">
             Follow us on:

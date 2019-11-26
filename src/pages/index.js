@@ -30,7 +30,7 @@ class IndexPage extends React.Component {
               Discover more
             </button>
           </div>
-          <div className="my-6 flex flex-col justify-center">
+          <div className="my-20 flex flex-col justify-center">
             <MembershipAction />
             <button className="bg-red-500 text-white uppercase font-bold text-2xl px-8 py-3">
               Sign in

@@ -26,8 +26,8 @@ function Header() {
           </div>
         </Link>
       </div>
-      <div className="flex-grow">
-        <div className="sm:text-sm float-right mt-3">
+      <div className="flex-grow text-white text-sm font-semibold">
+        <div className="float-right mt-3">
           {user.name ? (
             <span>
               <a
@@ -39,7 +39,7 @@ function Header() {
               >
                 Log Out
               </a>
-              <span className="text-white text-sm">&nbsp;({user.name})</span>
+              <span className="">&nbsp;({user.name})</span>
             </span>
           ) : (
             <a
