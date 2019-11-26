@@ -57,7 +57,9 @@ class BlogPostTemplate extends React.Component {
           <li className="text-gray-900"> {children}</li>
         ),
         [BLOCKS.QUOTE]: (post, children) => (
-          <q className="italic font-light">{children}</q>
+          <blockquote className="italic font-light border-l-2 border-gray-500 pl-2">
+            {children}
+          </blockquote>
         ),
         [INLINES.HYPERLINK]: (post, children) => (
           <a className="text-red-500 font-semibold cursor-pointer border-b border-red-500">
