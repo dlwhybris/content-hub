@@ -50,7 +50,7 @@ class Card extends React.Component {
                 </div>
 
                 <Link to={`blog/${post.slug}`}>
-                  <h3 className="text-gray-800 font-semibold text-2xl leading-tight mt-1 h-full">
+                  <h3 className="text-gray-700 font-semibold text-2xl leading-tight mt-1 h-full">
                     {post.title}
                   </h3>
                 </Link>

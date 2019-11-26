@@ -14,6 +14,6 @@
 .triangle-topright {
   width: 0;
   height: 0;
-  border-top: 55px solid red;
+  border-top: 55px solid#EF463C;
   border-left: 55px solid transparent;
 }
