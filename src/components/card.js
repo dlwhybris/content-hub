@@ -14,9 +14,20 @@ class Card extends React.Component {
           className="bg-white h-88 w-full bg-cover rounded-sm"
           style={imageStyle}
         >
-          {/* <div className="bg-red-500 h-12 w-12 float-right"></div> */}
           {post.loginRequired ? (
-            <div className="triangle-topright float-right"></div>
+            // <div className="triangle-topright float-right"></div>
+            <div className="h-16 w-16 float-right text-white triangle-topright">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                className="fill-current w-4 h-4 float-right -mt-12 m-2"
+              >
+                <path
+                  d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
           ) : (
             ""
           )}
