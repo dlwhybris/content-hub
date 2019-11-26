@@ -21,9 +21,9 @@ function Header() {
       <div className="flex flex-col md:flex-row">
         <Logo />
         <Link to="/">
-          <div className="text-xl md:text-3xl tracking-wide uppercase md:ml-4">
+          <h1 className="text-xl md:text-3xl tracking-wide uppercase md:ml-4 font-light">
             {data.site.siteMetadata.title}
-          </div>
+          </h1>
         </Link>
       </div>
       <div className="flex-grow text-white text-sm font-semibold">
