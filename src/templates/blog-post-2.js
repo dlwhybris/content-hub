@@ -19,7 +19,7 @@ class BlogPostTemplate extends React.Component {
       return <p>Redirecting to login...</p>
     }
     const siteTitle = post.title
-    const { previous, next } = this.props.pageContext
+    //const { previous, next } = this.props.pageContext
 
     const Bold = ({ children }) => (
       <span className="font-bold ">{children}</span>
@@ -62,11 +62,20 @@ class BlogPostTemplate extends React.Component {
             {children}
           </blockquote>
         ),
-        [INLINES.HYPERLINK]: (post, children) => (
-          <a className="text-red-500 font-semibold cursor-pointer border-b border-red-500">
-            {children}
-          </a>
-        ),
+        [INLINES.HYPERLINK]: (post, children) => {
+          //console.log("post", post)
+          //console.log("children", children)
+          return (
+            <div>
+              <a
+                className="text-red-500 font-semibold cursor-pointer border-b border-red-500"
+                href={post.data.uri}
+              >
+                {children}
+              </a>
+            </div>
+          )
+        },
       },
     }
     const postContent = documentToReactComponents(post.content.json, options)

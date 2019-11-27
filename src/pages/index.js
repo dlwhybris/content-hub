@@ -16,6 +16,7 @@ const IndexPage = ({ data }) => {
     <Layout location={siteUrl} title={title}>
       <SEO title="Homepage" />
       <Hero />
+      {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
 
       <main className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl">
         <div className="my-6">
@@ -36,5 +37,21 @@ const IndexPage = ({ data }) => {
     </Layout>
   )
 }
+
+export const homepageQuery = graphql`
+  {
+    contentfulPage(title: { eq: "Homepage" }) {
+      blocks {
+        ... on ContentfulHeroComponent {
+          id
+        }
+        ... on ContentfulRecentArticles {
+          id
+        }
+      }
+      title
+    }
+  }
+`
 
 export default IndexPage
