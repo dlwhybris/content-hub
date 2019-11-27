@@ -98,8 +98,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Tailwind Starter`,
-        short_name: `FTS`,
+        name: `Content hub`,
+        short_name: `Content hub`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#F7FAFC`,
