@@ -1,22 +1,20 @@
 import React from "react"
 import { Link } from "gatsby"
 import CardAuthor from "./CardAuthor"
+import Img from "gatsby-image"
 
 class Card extends React.Component {
   render() {
     const post = this.props.post
-    const imageStyle = {
-      backgroundImage: "url(" + post.cover.fluid.src + ")",
-    }
     return (
       <div className="rounded shadow-lg bg-white border h-full w-full">
-        <div
-          className="bg-white h-88 w-full bg-cover rounded-sm"
-          style={imageStyle}
-        >
+        <div className="bg-white h-88 w-full bg-cover rounded-sm">
+          <Img
+            fluid={post.cover.fluid}
+            className="bg-white h-88 w-full bg-cover rounded-sm"
+          />
           {post.loginRequired ? (
-            // <div className="triangle-topright float-right"></div>
-            <div className="h-16 w-16 float-right text-white triangle-topright">
+            <div className="h-16 w-16 float-right text-white triangle-topright relative -mt-88">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
