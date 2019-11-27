@@ -1,21 +1,20 @@
 import React from "react"
-import PropTypes from "prop-types";
-import Header from "./header";
-import Footer from "./footer";
-
+import PropTypes from "prop-types"
+import Header from "./header"
+import Footer from "./footer"
 
 function Layout({ children }) {
   return (
-    <div className="bg-gray-100 antialiased">
+    <div className="bg-gray-200 antialiased">
       <Header />
       {children}
       <Footer />
     </div>
-  );
+  )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
-};
+  children: PropTypes.node.isRequired,
+}
 
-export default Layout;
+export default Layout

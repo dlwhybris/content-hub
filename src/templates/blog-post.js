@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
       login()
       return <p>Redirecting to login...</p>
     }
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const siteTitle = post.title
     const { previous, next } = this.props.pageContext
     const imageStyle = {
       backgroundImage: "url(" + post.cover.fluid.src + ")",
@@ -52,7 +52,7 @@ class BlogPostTemplate extends React.Component {
         ),
         [BLOCKS.QUOTE]: (post, children) => <q className="my-12">{children}</q>,
         [INLINES.HYPERLINK]: (post, children) => (
-          <a className="text-indigo-700 font-semibold cursor-pointer border-b border-indigo-500">
+          <a className="text-red-500 font-semibold cursor-pointer border-b border-red-500">
             {children}
           </a>
         ),
@@ -117,16 +117,10 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
     contentfulBlogPost(slug: { eq: $slug }) {
       cover {
-        fluid(maxWidth: 1500) {
-          ...GatsbyContentfulFluid
+        fluid(maxWidth: 1200) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       content {

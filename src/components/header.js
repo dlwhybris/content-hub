@@ -2,48 +2,58 @@
 import React from "react"
 import Logo from "./logo"
 import { getProfile, logout, login } from "../utils/auth"
+import { graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 
 function Header() {
   const user = getProfile()
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
   return (
-    <header className="bg-white border-t border-indigo-300 shadow-lg">
-      <nav className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl   flex items-center justify-between py-4">
-        <div className="w-1/2">
-          <Logo />
+    <header className="bg-red-500 py-4 shadow-lg text-white flex px-8">
+      <div className="flex flex-col md:flex-row">
+        <Logo />
+        <Link to="/">
+          <h1 className="text-xl md:text-3xl tracking-wide uppercase md:ml-4 font-light">
+            {data.site.siteMetadata.title}
+          </h1>
+        </Link>
+      </div>
+      <div className="flex-grow text-white text-sm font-semibold">
+        <div className="float-right mt-3">
+          {user.name ? (
+            <span>
+              <a
+                href="#logout"
+                onClick={e => {
+                  logout()
+                  e.preventDefault()
+                }}
+              >
+                Log Out
+              </a>
+              <span className="">&nbsp;({user.name})</span>
+            </span>
+          ) : (
+            <a
+              href="#login"
+              onClick={e => {
+                login()
+                e.preventDefault()
+              }}
+            >
+              Login
+            </a>
+          )}
         </div>
-        <div className="w-1/2">
-          <div className="text-xs sm:text-sm flex float-right">
-            <section>
-              {user.name ? (
-                <span>
-                  <a
-                    href="#logout"
-                    onClick={e => {
-                      logout()
-                      e.preventDefault()
-                    }}
-                  >
-                    Log Out
-                  </a>
-                  <span className="text-gray-600 text-sm">
-                    &nbsp;({user.name})
-                  </span>
-                </span>
-              ) : (
-                <a
-                  href="#login"
-                  onClick={e => {
-                    login()
-                    e.preventDefault()
-                  }}
-                >
-                  Login
-                </a>
-              )}
-            </section>
-          </div>
-        </div>
-      </nav>
+      </div>
     </header>
   )
 }

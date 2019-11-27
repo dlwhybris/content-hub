@@ -1,61 +1,58 @@
 import React from "react"
 import { Link } from "gatsby"
-import Tags from "./tags"
-import Author from "./author"
+import CardAuthor from "./CardAuthor"
+import Img from "gatsby-image"
 
 class Card extends React.Component {
   render() {
     const post = this.props.post
-    console.log(post)
-    const imageStyle = {
-      backgroundImage: "url(" + post.cover.fluid.src + ")",
-    }
     return (
       <div className="rounded shadow-lg bg-white border h-full w-full">
-        <div
-          className="bg-red-400 h-56 w-full bg-cover rounded-sm"
-          style={imageStyle}
-        ></div>
+        <div className="bg-white h-88 w-full bg-cover rounded-sm">
+          <Img
+            fluid={post.cover.fluid}
+            className="bg-white h-88 w-full bg-cover rounded-sm"
+          />
+          {post.loginRequired ? (
+            <div className="h-16 w-16 float-right text-white triangle-topright relative -mt-88">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                className="fill-current w-4 h-4 float-right -mt-12 m-2"
+              >
+                <path
+                  d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
 
         <div className="flex flex-col p-6">
           <div className="flex flex-col justify-between border-2 border-white mb-2">
-            <div className="flex justify-between flex-col h-1/3 ">
+            <div className="flex justify-between flex-col">
               <div>
-                <span className="text-gray-600 text-xs uppercase font-semibold tracking-wide">
-                  {post.publicationDate}
-                </span>
+                <div className="mb-6">
+                  {post.authors && post.authors[0] ? (
+                    <CardAuthor
+                      author={post.authors[0]}
+                      publicationDate={post.publicationDate}
+                      tags={post.tags}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </div>
+
                 <Link to={`blog/${post.slug}`}>
-                  <h3 className="text-indigo-800 font-semibold text-lg leading-tight mt-1 h-full">
+                  <h3 className="text-gray-700 font-semibold text-2xl leading-tight mt-1 h-full">
                     {post.title}
                   </h3>
                 </Link>
               </div>
-              <div className="mt-4 h-2/3">
-                <p
-                  className="text-gray-700 text-base text-xs"
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      post.shortDescription.childMarkdownRemark.excerpt ||
-                      post.content.content,
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-between">
-            <div className="">
-              <Author authors={post.authors} />
-            </div>
-            <div className="">
-              <Tags tags={post.tags} />
-
-              {post.loginRequired ? (
-                <p className="bg-indigo-100 text-indigo-900 border-indigo-900 border-2 rounded-full w-3/12 py-2 px-1 text-center float-right">
-                  Premium
-                </p>
-              ) : (
-                ""
-              )}
             </div>
           </div>
         </div>

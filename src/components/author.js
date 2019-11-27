@@ -8,7 +8,7 @@ class Author extends React.Component {
       return null
     }
     return (
-      <section className="flex flex-row py-6 flex-wrap mx-auto items-center">
+      <section className="flex flex-row py-6 flex-wrap mx-auto items-start">
         <div className="mx-auto md:m-0">
           <Img
             sizes={authors[0].avatar.fluid}
@@ -16,15 +16,20 @@ class Author extends React.Component {
           />
         </div>
 
-        <div className="flex flex-col pl-2 md:w-72 w-full">
-          <span className="text-gray-700 font-semibold tracking-wide mx-auto md:m-0 ">
-            {authors[0].firstName}
-            &nbsp;
-            {authors[0].lastName}
-          </span>
-          <span className="text-gray-600 text-xs leading-relaxed mx-auto md:m-0 w-72">
-            {authors[0].bio.childMarkdownRemark.excerpt}
-          </span>
+        <div className="flex flex-col pl-3 w-3/4">
+          <div className="text-gray-800 font-medium text-xl my-2">
+            <span>
+              {authors[0].firstName}
+              &nbsp;
+              {authors[0].lastName}
+            </span>
+          </div>
+          <span
+            className="text-gray-700  leading-relaxed mx-auto md:m-0"
+            dangerouslySetInnerHTML={{
+              __html: authors[0].bio.childMarkdownRemark.html,
+            }}
+          ></span>
         </div>
       </section>
     )

@@ -1,10 +1,17 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+function getTemplate(templates) {
+  const randomTemplate = templates[Math.floor(Math.random() * templates.length)]
+  return randomTemplate
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPostTemplate1 = path.resolve(`./src/templates/blog-post-3.js`)
+  const blogPostTemplate2 = path.resolve(`./src/templates/blog-post-2.js`)
+  const templates = Array.from([blogPostTemplate1, blogPostTemplate2])
   return graphql(
     `
       {
@@ -32,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       createPage({
         path: `blog/${post.node.slug}`,
-        component: blogPost,
+        component: getTemplate(templates),
         context: {
           slug: post.node.slug,
           previous,

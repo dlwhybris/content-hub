@@ -23,8 +23,6 @@ module.exports = {
       options: {
         spaceId: `l8waisr0oq28`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
-        host: `preview.contentful.com`,
       },
     },
     `gatsby-plugin-postcss`,
@@ -100,14 +98,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Tailwind Starter`,
-        short_name: `FTS`,
+        name: `Content hub`,
+        short_name: `Content hub`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#F7FAFC`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/logo.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
   ],
