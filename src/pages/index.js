@@ -9,14 +9,16 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { useContentfulBlogs } from "../hooks/use-contentful-blogs"
 
 const IndexPage = ({ data }) => {
-  const { title, siteUrl } = useSiteMetadata()
+  const { siteUrl } = useSiteMetadata()
+  const { contentfulTitle, blocks } = data.contentfulPage
   const posts = useContentfulBlogs()
-
+  const heros = blocks.filter(block => {
+    return block.__typename === "ContentfulHeroComponent"
+  })
   return (
-    <Layout location={siteUrl} title={title}>
+    <Layout location={siteUrl} title={contentfulTitle}>
       <SEO title="Homepage" />
-      <Hero />
-      {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
+      <Hero hero={heros[0]} />
 
       <main className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl">
         <div className="my-6">
@@ -43,10 +45,20 @@ export const homepageQuery = graphql`
     contentfulPage(title: { eq: "Homepage" }) {
       blocks {
         ... on ContentfulHeroComponent {
-          id
+          coverImage {
+            fluid(maxWidth: 1200) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+          textOnCover {
+            childMarkdownRemark {
+              excerpt
+              html
+            }
+          }
         }
         ... on ContentfulRecentArticles {
-          id
+          numberOfArticles
         }
       }
       title
