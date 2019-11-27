@@ -87,7 +87,7 @@ class BlogPostTemplate extends React.Component {
                 </div>
 
                 <div className="py-12">
-                  <h1 className="mb-1 text-gray-900 tracking-wide text-3xl font-semibold">
+                  <h1 className="mb-1 text-gray-900 tracking-wide text-4xl font-semibold">
                     {post.title}
                   </h1>
                   <Tags tags={post.tags} />
