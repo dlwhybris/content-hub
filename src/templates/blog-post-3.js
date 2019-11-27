@@ -79,10 +79,12 @@ class BlogPostTemplate extends React.Component {
         />
 
         <section className="bg-white">
-          <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex">
-            <section className="w-1/3 z-10">
-              <div className="mt-24 bg-white z-20 -mr-32  text-gray-700 tracking-wide font-semibold text-sm">
-                <div className="pt-2 mr-12  w-2/3">{post.publicationDate}</div>
+          <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex flex-col flex-col md:flex-row">
+            <section className="md:w-1/3 md:z-10">
+              <div className="bg-white md:mt-24  md:z-20 md:-mr-32 text-gray-700 tracking-wide font-semibold text-sm">
+                <div className="pt-2 mr-12  md:w-2/3">
+                  {post.publicationDate}
+                </div>
 
                 <div className="py-12">
                   <h1 className="mb-1 text-gray-900 tracking-wide text-3xl font-semibold">
@@ -91,13 +93,13 @@ class BlogPostTemplate extends React.Component {
                   <Tags tags={post.tags} />
                 </div>
               </div>
-              <div className="pt-2 mr-12 border-t-2 border-gray-500">
+              <div className="md:pt-2 md:mr-12 border-t-2 border-gray-500">
                 <Author authors={post.authors} />
               </div>
             </section>
-            <div className="w-2/3">
+            <div className="md:w-2/3">
               <Img fluid={post.cover.fluid} />
-              <article className="py-8 px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
+              <article className="py-8 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
                 {postContent}
               </article>
             </div>
