@@ -78,8 +78,8 @@ class BlogPostTemplate extends React.Component {
           description={post.description || post.excerpt}
         />
         <section className="bg-white py-16">
-          <div className="mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex">
-            <div className="w-1/2 pr-16">
+          <div className="mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex flex-col md:flex-row">
+            <div className="md:w-1/2 md:pr-16">
               <div className="my-6 text-gray-700 tracking-wide font-semibold text-sm">
                 {post.publicationDate}
                 <Tags tags={post.tags} />
@@ -96,7 +96,7 @@ class BlogPostTemplate extends React.Component {
                 penatibus et.
               </p>
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <Img
                 fluid={post.cover.fluid}
                 className="h-120 object-cover w-full "
@@ -106,10 +106,10 @@ class BlogPostTemplate extends React.Component {
         </section>
         <section className="bg-gray-100">
           <div className="mx-auto max-w-xs xl:max-w-4xl lg:max-w-2xl md:max-w-lg sm:max-w-md">
-            <article className="py-8 px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
+            <article className="py-8 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
               {postContent}
             </article>
-            <div className="pt-2  px-8 border-t-2 border-gray-500">
+            <div className="pt-2 md:px-8 border-t-2 border-gray-500">
               <Author authors={post.authors} />
             </div>
           </div>
