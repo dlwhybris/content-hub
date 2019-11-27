@@ -79,7 +79,22 @@ class BlogPostTemplate extends React.Component {
           title={post.title}
           description={post.description || post.excerpt}
         />
+
         <section className="bg-white">
+          <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex">
+            <section className="bg-blue-500 w-1/3 z-10">
+              <div className="my-6 bg-white z-20 -mr-12">
+                <div>Date</div>
+                <div>titel</div>
+                <div>tags</div>
+              </div>
+              <div className="bg-green-300">Some other stuff</div>
+            </section>
+            <div className="bg-red-500 w-2/3">image</div>
+          </div>
+        </section>
+
+        {/* <section className="bg-white">
           <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex">
             <div className="w-1/3">
               <div className="mt-10/12">
@@ -109,7 +124,7 @@ class BlogPostTemplate extends React.Component {
               </article>
             </div>
           </div>
-        </section>
+        </section> */}
       </Layout>
     )
   }
