@@ -3,13 +3,11 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tags from "../components/tags"
-import TestComponent from "../components/TestComponent.js"
 import Author from "../components/author"
 import { login, isAuthenticated } from "../utils/auth"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Img from "gatsby-image"
-import BackgroundImage from "gatsby-background-image"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -105,38 +103,6 @@ class BlogPostTemplate extends React.Component {
             </div>
           </div>
         </section>
-
-        {/* <section className="bg-white">
-          <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex">
-            <div className="w-1/3">
-              <div className="mt-10/12">
-                <div className="pt-2 mr-12 border-t-2 border-gray-500">
-                  <Author authors={post.authors} />
-                </div>
-              </div>
-            </div>
-
-            <div className="w-2/3">
-              <BackgroundImage
-                Tag="section"
-                className="h-120 object-cover w-full"
-                fluid={post.cover.fluid}
-                backgroundColor={`#040e18`}
-              >
-                <div className="py-16 text-gray-700 tracking-wide font-semibold text-sm -ml-1/3 -mt-6 bg-white w-2/3">
-                  {post.publicationDate}
-                  <h1 className="mt-6 mb-2 text-gray-900 tracking-wide text-3xl font-semibold">
-                    {post.title}
-                  </h1>
-                  <Tags tags={post.tags} />
-                </div>
-              </BackgroundImage>
-              <article className="py-8 px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
-                {postContent}
-              </article>
-            </div>
-          </div>
-        </section> */}
       </Layout>
     )
   }
