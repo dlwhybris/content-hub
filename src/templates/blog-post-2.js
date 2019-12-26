@@ -4,6 +4,9 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Tags from "../components/Tags"
 import Author from "../components/Author"
+import AssetBlock from "../components/AssetBlock"
+import CodeBlock from "../components/CodeBlock"
+
 import { login, isAuthenticated } from "../utils/auth"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -25,11 +28,40 @@ class BlogPostTemplate extends React.Component {
       <span className="font-bold ">{children}</span>
     )
 
+    const CustomComponent = ({ componentType, fields }) => {
+      switch (componentType) {
+        case "codeBlock":
+          return (
+            <>
+              <CodeBlock
+                fileName={fields.title["en-US"]}
+                code={fields.code["en-US"]}
+              />
+            </>
+          )
+        default:
+          return (
+            <>
+              <pre>{JSON.stringify(componentType, null, 4)}</pre>
+              <pre>{JSON.stringify(fields, null, 4)}</pre>
+            </>
+          )
+      }
+    }
+
     const options = {
       renderMark: {
         [MARKS.BOLD]: text => <Bold>{text}</Bold>,
       },
       renderNode: {
+        [BLOCKS.EMBEDDED_ENTRY]: node => {
+          return (
+            <CustomComponent
+              componentType={node.data.target.sys.contentType.sys.id}
+              fields={node.data.target.fields}
+            />
+          )
+        },
         [BLOCKS.PARAGRAPH]: (post, children) => (
           <div className="mt-4">{children}</div>
         ),
@@ -55,9 +87,6 @@ class BlogPostTemplate extends React.Component {
           <ol className="list-decimal text-red-500 pl-4"> {children}</ol>
         ),
         [BLOCKS.LIST_ITEM]: (post, children) => {
-          console.log("post", post)
-          console.log("children", children)
-          console.log("list item value:", post.content[0].content[0].value)
           return (
             <li className="text-red-400 flex content-center py-2 px-2">
               <div className="pr-2">
@@ -83,17 +112,36 @@ class BlogPostTemplate extends React.Component {
             {children}
           </blockquote>
         ),
+
         [INLINES.HYPERLINK]: (post, children) => {
           return (
-            <div>
-              <a
-                className="text-red-500 font-semibold cursor-pointer border-b border-red-500"
-                href={post.data.uri}
-              >
-                {children}
-              </a>
-            </div>
+            <a
+              className="text-red-500 font-semibold cursor-pointer border-b border-red-500"
+              href={post.data.uri}
+            >
+              {children}
+            </a>
           )
+        },
+
+        [BLOCKS.EMBEDDED_ASSET]: node => {
+          if (node.data.target.fields) {
+            const { url, fileName, contentType } = node.data.target.fields.file[
+              "en-US"
+            ]
+            switch (contentType) {
+              /*               case "video/mp4":
+                return <VideoBlock src={url} /> */
+              case "image/png":
+                return <AssetBlock title={fileName} src={url} />
+              case "image/jpg":
+                return <AssetBlock title={fileName} src={url} />
+              case "image/jpeg":
+                return <AssetBlock title={fileName} src={url} />
+              default:
+                return <></>
+            }
+          }
         },
       },
     }

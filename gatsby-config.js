@@ -23,6 +23,7 @@ module.exports = {
       options: {
         spaceId: `l8waisr0oq28`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        forceFullSync: true,
       },
     },
     `gatsby-plugin-postcss`,
