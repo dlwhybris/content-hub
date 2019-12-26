@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Tags from "../components/tags"
-import Author from "../components/author"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
+import Tags from "../components/Tags"
+import Author from "../components/Author"
 import { login, isAuthenticated } from "../utils/auth"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -31,7 +31,7 @@ class BlogPostTemplate extends React.Component {
       },
       renderNode: {
         [BLOCKS.PARAGRAPH]: (post, children) => (
-          <p className="mt-4 ">{children}</p>
+          <div className="">{children}</div>
         ),
         [BLOCKS.HEADING_1]: (post, children) => (
           <h1 className="font-medium text-3xl mt-4 py-2 text-red-500">
@@ -49,16 +49,30 @@ class BlogPostTemplate extends React.Component {
           </h3>
         ),
         [BLOCKS.UL_LIST]: (post, children) => (
-          <ul className="list-disc pl-4"> {children}</ul>
+          <ul className="pl-4 py-2"> {children}</ul>
         ),
         [BLOCKS.OL_LIST]: (post, children) => (
           <ol className="list-decimal text-red-500 pl-4"> {children}</ol>
         ),
         [BLOCKS.LIST_ITEM]: (post, children) => (
-          <li className="text-gray-900"> {children}</li>
+          <li className="text-red-400 flex content-center py-2 px-2">
+            <div className="pr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                className="fill-current w-5 h-5 inline-block"
+              >
+                <path
+                  d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zM7.879 7.879l7.778-3.536-3.536 7.778-7.778 3.536L7.88 7.879zM10 11a1 1 0 100-2 1 1 0 000 2z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <span className="block text-gray-900"> {children}</span>
+          </li>
         ),
         [BLOCKS.QUOTE]: (post, children) => (
-          <blockquote className="italic font-light border-l-2 border-gray-500 pl-2">
+          <blockquote className="italic font-light border-l-2 border-red-400 ml-4 pl-2 my-6">
             {children}
           </blockquote>
         ),

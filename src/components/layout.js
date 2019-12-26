@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Header from "./header"
-import Footer from "./footer"
+import Header from "./Header"
+import Footer from "./Footer"
 
-function Layout({ children }) {
+const Layout = ({ children }) => {
   return (
     <div className="bg-gray-200 antialiased">
       <Header />

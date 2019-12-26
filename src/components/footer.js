@@ -1,6 +1,6 @@
 import React from "react"
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="bg-white">
       <div className="py-8 mx-auto max-w-xs xl:max-w-6xl  lg:max-w-4xl md:max-w-2xl sm:max-w-xl">

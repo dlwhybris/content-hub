@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import Tags from "./tags"
+import Tags from "./Tags"
 
 const CardAuthor = ({ author, publicationDate, tags }) => {
   return (
