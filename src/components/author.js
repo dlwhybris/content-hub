@@ -9,7 +9,7 @@ const Author = ({ authors }) => {
     <section className="flex flex-row py-6 flex-wrap mx-auto items-start">
       <div className="mx-auto md:m-0">
         <Img
-          sizes={authors[0].avatar.fluid}
+          fluid={authors[0].avatar.fluid}
           className="rounded-full w-16 h-16"
         />
       </div>
