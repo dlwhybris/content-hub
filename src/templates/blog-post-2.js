@@ -102,9 +102,7 @@ class BlogPostTemplate extends React.Component {
                   />
                 </svg>
               </div>
-              <span className="block text-gray-900">
-                {post.content[0].content[0].value}
-              </span>
+              <span className="block text-gray-900 -mt-4">{children}</span>
             </li>
           )
         },
@@ -164,14 +162,12 @@ class BlogPostTemplate extends React.Component {
               <h1 className="my-6 text-gray-900 tracking-wide text-3xl font-semibold">
                 {post.title}
               </h1>
-              <p className="my-6 text-gray-700 tracking-wide text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Euismod lacinia at quis risus sed vulputate odio ut. Quis lectus
-                nulla at volutpat diam. Ornare arcu dui vivamus arcu felis
-                bibendum ut tristique. Elit eget gravida cum sociis natoque
-                penatibus et.
-              </p>
+              <p
+                className="my-6 text-gray-700 tracking-wide text-lg"
+                dangerouslySetInnerHTML={{
+                  __html: post.shortDescription.childMarkdownRemark.html,
+                }}
+              ></p>
             </div>
             <div className="md:w-1/2">
               <Img
@@ -212,6 +208,12 @@ export const pageQuery = graphql`
       loginRequired
       slug
       tags
+      shortDescription {
+        childMarkdownRemark {
+          excerpt
+          html
+        }
+      }
       title
       authors {
         id
