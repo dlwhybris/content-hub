@@ -36,6 +36,7 @@ class BlogPostTemplate extends React.Component {
               <CodeBlock
                 fileName={fields.title["en-US"]}
                 code={fields.code["en-US"]}
+                language={fields.language["en-US"]}
               />
             </>
           )
