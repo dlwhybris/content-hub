@@ -2,7 +2,7 @@ import React from "react"
 
 const AssetBlock = ({ src, title }) => {
   return (
-    <div className="w-120 py-4 p-2">
+    <div className="w-full flex justify-center py-4">
       <picture className="">
         <source srcSet={src + "?fm=webp&fit=fill"} type="image/webp" />
         <source
@@ -13,7 +13,7 @@ const AssetBlock = ({ src, title }) => {
           src={src + "?fm=jpg&fl=progressive&fit=fill&w="}
           alt={title}
           loading="lazy"
-          className="object-cover"
+          className="object-cover max-h-screen-1/2"
         />
       </picture>
     </div>
