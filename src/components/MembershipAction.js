@@ -1,6 +1,6 @@
 import React from "react"
 
-function MembershipAction() {
+const MembershipAction = () => {
   return (
     <div className="bg-white text-gray-700 p-20 rounded-sm shadow-lg">
       <h2 className="text-red-500 uppercase font-semibold text-3xl mb-8 tracking-wide flex content-center">
