@@ -126,5 +126,6 @@ module.exports = {
         pageTransitionDelay: 0,
       },
     },
+    `contentful-extra`,
   ],
 }

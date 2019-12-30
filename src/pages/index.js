@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import PostCollection from "../components/PostCollection"
 import Hero from "../components/Hero"
-import MembershipAction from "../components/MembershipAction"
+//import MembershipAction from "../components/MembershipAction"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { useContentfulBlogs } from "../hooks/use-contentful-blogs"
 
@@ -55,12 +55,6 @@ export const homepageQuery = graphql`
           coverImage {
             fluid(maxWidth: 1200) {
               ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          textOnCover {
-            childMarkdownRemark {
-              excerpt
-              html
             }
           }
         }
