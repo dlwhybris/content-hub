@@ -208,12 +208,18 @@ export const pageQuery = graphql`
       loginRequired
       slug
       tags
+      shortDescription {
+        childMarkdownRemark {
+          excerpt
+          html
+        }
+      }
       title
       authors {
         id
         avatar {
-          fluid {
-            src
+          fluid(maxWidth: 50) {
+            ...GatsbyContentfulFluid_withWebp
           }
         }
         bio {
