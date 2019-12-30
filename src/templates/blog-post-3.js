@@ -152,38 +152,31 @@ class BlogPostTemplate extends React.Component {
           title={post.title}
           description={post.description || post.excerpt}
         />
-        <section className="bg-white py-16">
-          <div className="mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex flex-col md:flex-row">
-            <div className="md:w-1/2 md:pr-16">
-              <div className="my-6 text-gray-700 tracking-wide font-semibold text-sm">
-                {post.publicationDate}
-                <Tags tags={post.tags} />
+
+        <section className="bg-white">
+          <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex flex-col flex-col md:flex-row">
+            <section className="md:w-1/3 md:z-10">
+              <div className="bg-white md:mt-24  md:z-20 md:-mr-32 text-gray-700 tracking-wide font-semibold text-sm">
+                <div className="pt-2 mr-12  md:w-2/3">
+                  {post.publicationDate}
+                </div>
+
+                <div className="py-12">
+                  <h1 className="mb-1 text-gray-900 tracking-wide text-4xl font-semibold">
+                    {post.title}
+                  </h1>
+                  <Tags tags={post.tags} />
+                </div>
               </div>
-              <h1 className="my-6 text-gray-900 tracking-wide text-3xl font-semibold">
-                {post.title}
-              </h1>
-              <p
-                className="my-6 text-gray-700 tracking-wide text-lg"
-                dangerouslySetInnerHTML={{
-                  __html: post.shortDescription.childMarkdownRemark.html,
-                }}
-              ></p>
-            </div>
-            <div className="md:w-1/2">
-              <Img
-                fluid={post.cover.fluid}
-                className="h-120 object-cover w-full "
-              />
-            </div>
-          </div>
-        </section>
-        <section className="bg-gray-100">
-          <div className="mx-auto max-w-xs xl:max-w-4xl lg:max-w-2xl md:max-w-lg sm:max-w-md">
-            <article className="py-8 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
-              {postContent}
-            </article>
-            <div className="pt-2 md:px-8 border-t-2 border-gray-500">
-              <Author authors={post.authors} />
+              <div className="md:pt-2 md:mr-12 border-t-2 border-gray-500">
+                <Author authors={post.authors} />
+              </div>
+            </section>
+            <div className="md:w-2/3">
+              <Img fluid={post.cover.fluid} />
+              <article className="py-8 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
+                {postContent}
+              </article>
             </div>
           </div>
         </section>
