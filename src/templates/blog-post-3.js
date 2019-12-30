@@ -4,6 +4,9 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Tags from "../components/Tags"
 import Author from "../components/Author"
+import AssetBlock from "../components/AssetBlock"
+import CodeBlock from "../components/CodeBlock"
+
 import { login, isAuthenticated } from "../utils/auth"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -25,11 +28,41 @@ class BlogPostTemplate extends React.Component {
       <span className="font-bold ">{children}</span>
     )
 
+    const CustomComponent = ({ componentType, fields }) => {
+      switch (componentType) {
+        case "codeBlock":
+          return (
+            <>
+              <CodeBlock
+                fileName={fields.title["en-US"]}
+                code={fields.code["en-US"]}
+                language={fields.language["en-US"]}
+              />
+            </>
+          )
+        default:
+          return (
+            <>
+              <pre>{JSON.stringify(componentType, null, 4)}</pre>
+              <pre>{JSON.stringify(fields, null, 4)}</pre>
+            </>
+          )
+      }
+    }
+
     const options = {
       renderMark: {
         [MARKS.BOLD]: text => <Bold>{text}</Bold>,
       },
       renderNode: {
+        [BLOCKS.EMBEDDED_ENTRY]: node => {
+          return (
+            <CustomComponent
+              componentType={node.data.target.sys.contentType.sys.id}
+              fields={node.data.target.fields}
+            />
+          )
+        },
         [BLOCKS.PARAGRAPH]: (post, children) => (
           <div className="mt-4">{children}</div>
         ),
@@ -55,9 +88,6 @@ class BlogPostTemplate extends React.Component {
           <ol className="list-decimal text-red-500 pl-4"> {children}</ol>
         ),
         [BLOCKS.LIST_ITEM]: (post, children) => {
-          console.log("post", post)
-          console.log("children", children)
-          console.log("list item value:", post.content[0].content[0].value)
           return (
             <li className="text-red-400 flex content-center py-2 px-2">
               <div className="pr-2">
@@ -72,9 +102,7 @@ class BlogPostTemplate extends React.Component {
                   />
                 </svg>
               </div>
-              <span className="block text-gray-900">
-                {post.content[0].content[0].value}
-              </span>
+              <span className="block text-gray-900 -mt-4">{children}</span>
             </li>
           )
         },
@@ -83,17 +111,36 @@ class BlogPostTemplate extends React.Component {
             {children}
           </blockquote>
         ),
+
         [INLINES.HYPERLINK]: (post, children) => {
           return (
-            <div>
-              <a
-                className="text-red-500 font-semibold cursor-pointer border-b border-red-500"
-                href={post.data.uri}
-              >
-                {children}
-              </a>
-            </div>
+            <a
+              className="text-red-500 font-semibold cursor-pointer border-b border-red-500"
+              href={post.data.uri}
+            >
+              {children}
+            </a>
           )
+        },
+
+        [BLOCKS.EMBEDDED_ASSET]: node => {
+          if (node.data.target.fields) {
+            const { url, fileName, contentType } = node.data.target.fields.file[
+              "en-US"
+            ]
+            switch (contentType) {
+              /*               case "video/mp4":
+                return <VideoBlock src={url} /> */
+              case "image/png":
+                return <AssetBlock title={fileName} src={url} />
+              case "image/jpg":
+                return <AssetBlock title={fileName} src={url} />
+              case "image/jpeg":
+                return <AssetBlock title={fileName} src={url} />
+              default:
+                return <></>
+            }
+          }
         },
       },
     }
@@ -105,31 +152,38 @@ class BlogPostTemplate extends React.Component {
           title={post.title}
           description={post.description || post.excerpt}
         />
-
-        <section className="bg-white">
-          <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex flex-col flex-col md:flex-row">
-            <section className="md:w-1/3 md:z-10">
-              <div className="bg-white md:mt-24  md:z-20 md:-mr-32 text-gray-700 tracking-wide font-semibold text-sm">
-                <div className="pt-2 mr-12  md:w-2/3">
-                  {post.publicationDate}
-                </div>
-
-                <div className="py-12">
-                  <h1 className="mb-1 text-gray-900 tracking-wide text-4xl font-semibold">
-                    {post.title}
-                  </h1>
-                  <Tags tags={post.tags} />
-                </div>
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl flex flex-col md:flex-row">
+            <div className="md:w-1/2 md:pr-16">
+              <div className="my-6 text-gray-700 tracking-wide font-semibold text-sm">
+                {post.publicationDate}
+                <Tags tags={post.tags} />
               </div>
-              <div className="md:pt-2 md:mr-12 border-t-2 border-gray-500">
-                <Author authors={post.authors} />
-              </div>
-            </section>
-            <div className="md:w-2/3">
-              <Img fluid={post.cover.fluid} />
-              <article className="py-8 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
-                {postContent}
-              </article>
+              <h1 className="my-6 text-gray-900 tracking-wide text-3xl font-semibold">
+                {post.title}
+              </h1>
+              <p
+                className="my-6 text-gray-700 tracking-wide text-lg"
+                dangerouslySetInnerHTML={{
+                  __html: post.shortDescription.childMarkdownRemark.html,
+                }}
+              ></p>
+            </div>
+            <div className="md:w-1/2">
+              <Img
+                fluid={post.cover.fluid}
+                className="h-120 object-cover w-full "
+              />
+            </div>
+          </div>
+        </section>
+        <section className="bg-gray-100">
+          <div className="mx-auto max-w-xs xl:max-w-4xl lg:max-w-2xl md:max-w-lg sm:max-w-md">
+            <article className="py-8 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
+              {postContent}
+            </article>
+            <div className="pt-2 md:px-8 border-t-2 border-gray-500">
+              <Author authors={post.authors} />
             </div>
           </div>
         </section>

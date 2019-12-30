@@ -10,7 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPostTemplate1 = path.resolve(`./src/templates/blog-post-2.js`)
-  const blogPostTemplate2 = path.resolve(`./src/templates/blog-post-2.js`)
+  const blogPostTemplate2 = path.resolve(`./src/templates/blog-post-3.js`)
   const templates = Array.from([blogPostTemplate1, blogPostTemplate2])
   return graphql(
     `
