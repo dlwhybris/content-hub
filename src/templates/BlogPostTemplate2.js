@@ -5,21 +5,23 @@ import SEO from "../components/Seo"
 import Tags from "../components/Tags"
 import Author from "../components/Author"
 import RenderOptions from "./RenderOptions"
-
+import MembershipAction from "../components/MembershipAction"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Img from "gatsby-image"
+import { useAuth } from "react-use-auth"
 
 const BlogPostTemplate2 = ({ data }) => {
   const post = data.contentfulBlogPost
   const premiumContent = post.loginRequired
 
-  if (premiumContent) {
-    return <p>Redirecting to login...</p>
+  const { isAuthenticated } = useAuth()
+
+  let article
+  if (premiumContent && !isAuthenticated()) {
+    article = <MembershipAction />
+  } else {
+    article = documentToReactComponents(post.content.json, RenderOptions)
   }
-  const postContent = documentToReactComponents(
-    post.content.json,
-    RenderOptions
-  )
 
   return (
     <Layout title={post.title}>
@@ -45,7 +47,7 @@ const BlogPostTemplate2 = ({ data }) => {
           <div className="md:w-2/3">
             <Img fluid={post.cover.fluid} />
             <article className="py-8 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
-              {postContent}
+              {article}
             </article>
           </div>
         </div>
