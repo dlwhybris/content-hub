@@ -6,14 +6,15 @@
 <img width="60" src="https://tailwindcss.com/apple-touch-icon.png">
 </a>
 </p>
-<h1 align="center">
+<h1 >
 <a href="https://flamboyant-beaver-61051a.netlify.com/" target="_blank">
 Delaware Content Hub
   </a>
-  [Live demo](https://flamboyant-beaver-61051a.netlify.com/)
-[design](https://delawareconsulting.invisionapp.com/share/6BUVLEBGAYQ#/394049433_Content_Hub-Homepage-1920-1140_Copy)
-
 </h1>
+<h5 align="center">
+[Live demo](https://flamboyant-beaver-61051a.netlify.com/)
+[design](https://delawareconsulting.invisionapp.com/share/6BUVLEBGAYQ#/394049433_Content_Hub-Homepage-1920-1140_Copy)
+</h5>
 
 ## 🚀 Quick start
 
