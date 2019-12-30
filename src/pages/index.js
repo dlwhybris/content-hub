@@ -24,6 +24,7 @@ const IndexPage = ({ data }) => {
         <div className="my-6">
           <PostCollection posts={posts} />
         </div>
+
         {(() => {
           //replace hardcoded value with configurable value
           if (posts.length > 4) {
@@ -38,9 +39,6 @@ const IndexPage = ({ data }) => {
         })()}
         {/*         <div className="my-20 flex flex-col justify-center">
           <MembershipAction />
-          <button className="bg-red-500 text-white uppercase font-bold text-2xl px-8 py-3">
-            Sign in
-          </button>
         </div> */}
       </main>
     </Layout>

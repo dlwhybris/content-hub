@@ -1,10 +1,21 @@
-import React from "react"
-import { handleAuthentication } from "../utils/auth"
+/* eslint-disable */
+import React, { useEffect } from "react"
+import { useAuth } from "react-use-auth"
+import Layout from "../components/Layout"
 
-const Callback = () => {
-  handleAuthentication()
+const Auth0CallbackPage = () => {
+  const { handleAuthentication } = useAuth()
+  useEffect(() => {
+    handleAuthentication()
+  }, [])
 
-  return <p>Loading...</p>
+  return (
+    <Layout>
+      <h1>
+        This is the auth callback page, you should be redirected immediately.
+      </h1>
+    </Layout>
+  )
 }
 
-export default Callback
+export default Auth0CallbackPage

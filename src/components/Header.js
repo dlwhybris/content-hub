@@ -1,12 +1,12 @@
 // import { Link } from "gatsby"
 import React from "react"
 import Logo from "./Logo"
-import { getProfile, logout, login } from "../utils/auth"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
+import { useAuth } from "react-use-auth"
 
 const Header = () => {
-  const user = getProfile()
+  const { isAuthenticated, login, logout, user } = useAuth()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -28,27 +28,15 @@ const Header = () => {
       </div>
       <div className="flex-grow text-white text-sm font-semibold">
         <div className="float-right mt-3">
-          {user.name ? (
+          {isAuthenticated() ? (
             <span>
-              <a
-                href="#logout"
-                onClick={e => {
-                  logout()
-                  e.preventDefault()
-                }}
-              >
+              <a href="#logout" onClick={e => logout()}>
                 Log Out
               </a>
               <span className="">&nbsp;({user.name})</span>
             </span>
           ) : (
-            <a
-              href="#login"
-              onClick={e => {
-                login()
-                e.preventDefault()
-              }}
-            >
+            <a href="#login" onClick={() => login()}>
               Login
             </a>
           )}

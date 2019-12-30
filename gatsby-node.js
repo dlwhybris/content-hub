@@ -1,5 +1,4 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 function getTemplate(templates) {
   const randomTemplate = templates[Math.floor(Math.random() * templates.length)]
@@ -9,8 +8,8 @@ function getTemplate(templates) {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPostTemplate1 = path.resolve(`./src/templates/blog-post-2.js`)
-  const blogPostTemplate2 = path.resolve(`./src/templates/blog-post-3.js`)
+  const blogPostTemplate1 = path.resolve(`./src/templates/BlogPostTemplate1.js`)
+  const blogPostTemplate2 = path.resolve(`./src/templates/BlogPostTemplate2.js`)
   const templates = Array.from([blogPostTemplate1, blogPostTemplate2])
   return graphql(
     `
@@ -50,28 +49,4 @@ exports.createPages = ({ graphql, actions }) => {
 
     return null
   })
-}
-
-exports.onCreatePage = async ({ page, actions }) => {
-  exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-    if (stage === "build-html") {
-      /*
-       * During the build step, `auth0-js` will break because it relies on
-       * browser-specific APIs. Fortunately, we don’t need it during the build.
-       * Using Webpack’s null loader, we’re able to effectively ignore `auth0-js`
-       * during the build. (See `src/utils/auth.js` to see how we prevent this
-       * from breaking the app.)
-       */
-      actions.setWebpackConfig({
-        module: {
-          rules: [
-            {
-              test: /auth0-js/,
-              use: loaders.null(),
-            },
-          ],
-        },
-      })
-    }
-  }
 }
