@@ -25,14 +25,14 @@ Delaware Content Hub
     gatsby develop
     ```
 
-    Create 2 config files
+    **Create 2 config files**
 
     ```sh
     touch .env.development
     touch .env.production
     ```
 
-    Add your keys to the config files
+    **Add your keys to the config files**
 
     ```sh
     GATSBY_AUTH0_DOMAIN=content-hub-test.eu.auth0.com
