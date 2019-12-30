@@ -7,17 +7,18 @@ import Author from "../components/Author"
 import AssetBlock from "../components/AssetBlock"
 import CodeBlock from "../components/CodeBlock"
 
-import { login, isAuthenticated } from "../utils/auth"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Img from "gatsby-image"
 
 class BlogPostTemplate extends React.Component {
   render() {
+    const login = true
+    const isAuthenticated = false
     const post = this.props.data.contentfulBlogPost
     const premiumContent = post.loginRequired
 
-    if (!isAuthenticated() && premiumContent) {
+    if (!isAuthenticated && premiumContent) {
       login()
       return <p>Redirecting to login...</p>
     }

@@ -1,12 +1,14 @@
 // import { Link } from "gatsby"
 import React from "react"
 import Logo from "./Logo"
-import { getProfile, logout, login } from "../utils/auth"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 
+function login() {}
+function logout() {}
+
 const Header = () => {
-  const user = getProfile()
+  const user = {}
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
