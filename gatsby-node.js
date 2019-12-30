@@ -1,5 +1,4 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 function getTemplate(templates) {
   const randomTemplate = templates[Math.floor(Math.random() * templates.length)]
