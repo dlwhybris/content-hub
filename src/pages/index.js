@@ -24,11 +24,18 @@ const IndexPage = ({ data }) => {
         <div className="my-6">
           <PostCollection posts={posts} />
         </div>
-        <div className="my-12 flex justify-center">
-          <button className="bg-red-500 text-white uppercase font-bold text-2xl px-8 py-3">
-            Discover more
-          </button>
-        </div>
+        {(() => {
+          //replace hardcoded value with configurable value
+          if (posts.length > 4) {
+            return (
+              <div className="my-12 flex justify-center">
+                <button className="bg-red-500 text-white uppercase font-bold text-2xl px-8 py-3">
+                  Discover more
+                </button>
+              </div>
+            )
+          }
+        })()}
         <div className="my-20 flex flex-col justify-center">
           <MembershipAction />
           <button className="bg-red-500 text-white uppercase font-bold text-2xl px-8 py-3">
