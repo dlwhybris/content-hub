@@ -156,7 +156,7 @@ class BlogPostTemplate extends React.Component {
         <section className="bg-white">
           <div className="py-16 mx-auto max-w-xs xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl border-b-2 border-gray-500 flex flex-col flex-col md:flex-row">
             <section className="md:w-1/3 md:z-10">
-              <div className="bg-white md:mt-24  md:z-20 md:-mr-32 text-gray-700 tracking-wide font-semibold text-sm">
+              <div className="bg-white md:mt-24  md:z-20 md:-mr-32 text-gray-700 tracking-wide font-semibold text-sm pr-8">
                 <div className="pt-2 mr-12  md:w-2/3">
                   {post.publicationDate}
                 </div>
