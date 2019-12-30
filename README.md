@@ -41,7 +41,7 @@ Delaware Content Hub
     CONTENTFUL_ACCESS_TOKEN=<client-id-here>
     ```
 
-1)  **Open the source code and start editing!**
+    **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
