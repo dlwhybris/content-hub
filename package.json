@@ -41,7 +41,8 @@
     "react-helmet": "^5.2.0",
     "react-switch": "^5.0.0",
     "react-syntax-highlighter": "^12.2.1",
-    "react-typography": "^0.16.19"
+    "react-typography": "^0.16.19",
+    "react-use-auth": "^0.5.3"
   },
   "devDependencies": {
     "prettier": "^1.17.0",

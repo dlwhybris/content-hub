@@ -24,6 +24,7 @@ const IndexPage = ({ data }) => {
         <div className="my-6">
           <PostCollection posts={posts} />
         </div>
+
         {(() => {
           //replace hardcoded value with configurable value
           if (posts.length > 4) {
