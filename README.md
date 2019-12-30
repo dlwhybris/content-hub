@@ -8,13 +8,9 @@
 </p>
 <h1 align="center">
 <a href="https://flamboyant-beaver-61051a.netlify.com/" target="_blank">
-Delaware Content Hub
+Delaware Content Hub (click me for live demo)
   </a>
 </h1>
-<p align="center">
-[Live demo](https://flamboyant-beaver-61051a.netlify.com/)
-[design](https://delawareconsulting.invisionapp.com/share/6BUVLEBGAYQ#/394049433_Content_Hub-Homepage-1920-1140_Copy)
-</p>
 
 ## 🚀 Quick start
 
