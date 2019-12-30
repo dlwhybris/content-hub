@@ -25,7 +25,23 @@ Delaware Content Hub
     gatsby develop
     ```
 
-1.  **Open the source code and start editing!**
+    Create 2 config files
+
+    ```sh
+    touch .env.development
+    touch .env.production
+    ```
+
+    Add your keys to the config files
+
+    ```sh
+    GATSBY_AUTH0_DOMAIN=content-hub-test.eu.auth0.com
+    GATSBY_AUTH0_CLIENTID=<client-id-here>
+    GATSBY_AUTH0_CALLBACK=http://localhost:8000/auth0_callback
+    CONTENTFUL_ACCESS_TOKEN=<client-id-here>
+    ```
+
+1)  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
