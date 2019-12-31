@@ -6,7 +6,7 @@ import Img from "gatsby-image"
 const Card = ({ post }) => {
   return (
     <div className="rounded shadow-lg bg-white border h-full w-full">
-      <Link to={`blog/${post.slug}`}>
+      <Link to={`blog/${post.slug}`} title={post.title}>
         <div className="bg-white h-88 w-full bg-cover rounded-sm">
           <Img
             fluid={post.cover.fluid}
@@ -47,7 +47,7 @@ const Card = ({ post }) => {
                 )}
               </div>
 
-              <Link to={`blog/${post.slug}`}>
+              <Link to={`blog/${post.slug}`} title={post.title}>
                 <h3 className="text-gray-700 font-semibold text-2xl leading-tight mt-1 h-full">
                   {post.title}
                 </h3>

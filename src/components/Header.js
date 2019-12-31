@@ -20,7 +20,7 @@ const Header = () => {
     <header className="bg-red-500 py-4 shadow-lg text-white flex px-8">
       <div className="flex flex-col md:flex-row">
         <Logo />
-        <Link to="/">
+        <Link to="/" title={data.site.siteMetadata.title}>
           <h1 className="text-xl md:text-3xl tracking-wide uppercase md:ml-4 font-light">
             {data.site.siteMetadata.title}
           </h1>

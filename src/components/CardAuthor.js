@@ -12,7 +12,7 @@ const CardAuthor = ({ author, publicationDate, tags }) => {
         <div>
           <Tags tags={tags} />
         </div>
-        <div className="text-gray-600 text-xs font-semibold tracking-wide">
+        <div className="text-gray-700 text-xs font-medium tracking-wide">
           by&nbsp;
           {author.firstName}
           &nbsp;

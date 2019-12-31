@@ -92,7 +92,7 @@ const RenderOptions = {
     [INLINES.HYPERLINK]: (post, children) => {
       return (
         <a
-          className="text-red-500 font-semibold cursor-pointer border-b border-red-500"
+          className="text-red-600 font-semibold cursor-pointer border-b border-red-500"
           href={post.data.uri}
         >
           {children}
