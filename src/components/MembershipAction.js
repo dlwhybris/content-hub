@@ -23,11 +23,11 @@ const MembershipAction = () => {
           </div>
         </h2>
         <p className=" text-xl text-gray-700 tracking-wide">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. A erat nam
-          at lectus. Nisl nisi scelerisque eu ultrices vitae auctor. Urna
-          porttitor rhoncus dolor purus. Turpis egestas maecenas pharetra
-          convallis posuere morbi leo urna molestie.
+          Are you eager to follow the latest release information, useful
+          configuration information and best practices? On the delaware Content
+          Hub you'll find experts testimonials and guidance. Going from
+          information about SAP releases to latest technology trends like AI and
+          machine learning. Do you want to read them all? You can sign up here!
         </p>
       </div>
       <button
