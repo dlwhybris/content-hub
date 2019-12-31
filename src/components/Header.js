@@ -26,21 +26,25 @@ const Header = () => {
           </h1>
         </Link>
       </div>
-      <div className="flex-grow text-white text-sm font-semibold">
-        <div className="float-right mt-3">
-          {isAuthenticated() ? (
+      <div className="flex-grow text-sm">
+        {isAuthenticated() ? (
+          <button
+            className="float-right mt-3 bg-white text-gray-800 rounded-sm px-4 py-1 font-semibold focus:outline-none hover:text-black"
+            onClick={e => logout()}
+          >
             <span>
-              <a href="#logout" onClick={e => logout()}>
-                Log Out
-              </a>
+              Log Out
               <span className="">&nbsp;({user.name})</span>
             </span>
-          ) : (
-            <a href="#login" onClick={() => login()}>
-              Login
-            </a>
-          )}
-        </div>
+          </button>
+        ) : (
+          <button
+            className="float-right mt-3 bg-white text-gray-800 rounded-sm px-4 py-1 font-semibold focus:outline-none hover:text-black"
+            onClick={() => login()}
+          >
+            Login
+          </button>
+        )}
       </div>
     </header>
   )

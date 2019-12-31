@@ -9,7 +9,7 @@ const Tags = ({ tags }) => {
       {tags.map(tag => (
         <div
           key={tag}
-          className="text-sm font-bold text-red-500 border-r border-red-500 uppercase last:border-r-0 px-2  last:pr-0"
+          className="text-sm font-bold text-red-600 border-r border-red-500 uppercase last:border-r-0 px-2  last:pr-0"
         >
           {tag}
         </div>
