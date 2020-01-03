@@ -26,8 +26,8 @@ const HeroWithSearch = ({ hero }) => {
         fluid={hero.coverImage.fluid}
         style={backgroundImageStyle}
       >
-        <div className="self-center flex mx-auto">
-          <div className="flex mr-10">
+        <div className="self-center md:flex mx-auto">
+          <div className="flex md:mr-10 mb-6 md:mb-0">
             <input
               type="text"
               className="bg-white rounded-l-full px-8 py-4 text-gray-700 focus:outline-none border-2 border-white focus:border-2 focus:border-red-300 focus:border-r-0"
