@@ -1,14 +1,23 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
+import { useContentfulTags } from "../hooks/use-contentful-tags"
 
 const HeroWithSearch = ({ hero }) => {
-  const tags = ["Commerce", "Sales"]
+  const tags = useContentfulTags()
+
+  console.log("tags", tags)
   const backgroundImageStyle = {
     backgroundColor: "hsla(0,0%,100%,0.30)",
     backgroundBlendMode: "overlay",
   }
   return (
     <div className="bg-gray-100">
+      <div>
+        <pre>{JSON.stringify(tags, null, 4)}</pre>]
+        {tags.forEach((tag, index) => {
+          return <span key={tag}>{tag} </span>
+        })}
+      </div>
       <BackgroundImage
         Tag="section"
         className="w-full h-96 flex"
@@ -29,8 +38,8 @@ const HeroWithSearch = ({ hero }) => {
           <div className="inline-block relative w-64">
             <select className="block appearance-none w-full bg-white focus:outline-none rounded-full py-4 px-8 text-gray-700 border-2 border-white">
               <option>All </option>
-              {tags.map(tag => {
-                return <option key={tag}>{tag} </option>
+              {tags.forEach((tag, index) => {
+                return <option key={index}>{index} </option>
               })}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white bg-red-500 rounded-r-full">
