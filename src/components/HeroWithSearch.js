@@ -1,6 +1,7 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
 import { useContentfulTags } from "../hooks/use-contentful-tags"
+import { navigate } from "gatsby"
 
 const HeroWithSearch = ({ hero }) => {
   const tags = useContentfulTags()
@@ -9,6 +10,12 @@ const HeroWithSearch = ({ hero }) => {
     backgroundColor: "hsla(0,0%,100%,0.30)",
     backgroundBlendMode: "overlay",
   }
+
+  const naviageToTagPage = event => {
+    event.preventDefault()
+    navigate("/tags/" + event.target.value)
+  }
+
   return (
     <div className="bg-gray-100">
       <div></div>
@@ -30,10 +37,13 @@ const HeroWithSearch = ({ hero }) => {
             </button>
           </div>
           <div className="inline-block relative w-64">
-            <select className="block appearance-none w-full bg-white focus:outline-none rounded-full py-4 px-8 text-gray-700 border-2 border-white">
+            <select
+              className="block appearance-none w-full bg-white focus:outline-none rounded-full py-4 px-8 text-gray-700 border-2 border-white"
+              onChange={e => naviageToTagPage(e)}
+            >
               <option>All </option>
-              {tags.map((tag, index) => {
-                return <option key={tag}>{tag} </option>
+              {tags.map(tag => {
+                return <option key={tag}>{tag}</option>
               })}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white bg-red-500 rounded-r-full">
