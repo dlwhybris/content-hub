@@ -9,7 +9,7 @@ function getTemplate(templates) {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPostTemplate1 = path.resolve(`./src/templates/BlogPostTemplate1.js`)
+  const blogPostTemplate1 = path.resolve(`./src/templates/BlogPostTemplate2.js`)
   const blogPostTemplate2 = path.resolve(`./src/templates/BlogPostTemplate2.js`)
   //const allTagsTemplate = path.resolve(`./src/templates/AllTagsTemplate.js`)
   const tagTemplate = path.resolve(`./src/templates/TagTemplate.js`)
