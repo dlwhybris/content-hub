@@ -21,7 +21,7 @@ const HeroWithSearch = ({ hero }) => {
             </button>
           </div>
           <div className="inline-block relative w-40">
-            <select className="block appearance-none w-full bg-white focus:outline-none focus:shadow-outline rounded-full py-4 px-8 text-gray-700 border-2 border-white">
+            <select className="block appearance-none w-full bg-white focus:outline-none rounded-full py-4 px-8 text-gray-700 border-2 border-white">
               <option>All </option>
               <option>Option 2</option>
               <option>Option 3</option>
