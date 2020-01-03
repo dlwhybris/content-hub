@@ -4,7 +4,10 @@ import Img from "gatsby-image"
 const Hero = ({ hero }) => {
   return (
     <div className="bg-gray-100 relative">
-      <Img fluid={hero.coverImage.fluid} className="object-cover w-full h-96" />
+      <Img
+        fluid={hero.coverImage.fluid}
+        className="object-cover w-full h-96 opacity-75"
+      />
       {(() => {
         //replace hardcoded value with configurable value
         if (hero.textOnCover && hero.textOnCover.childMarkdownRemark) {
