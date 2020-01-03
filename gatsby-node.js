@@ -1,4 +1,5 @@
 const path = require(`path`)
+const { slugify } = require(`./src/utils/slugify`)
 
 function getTemplate(templates) {
   const randomTemplate = templates[Math.floor(Math.random() * templates.length)]
@@ -10,7 +11,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const blogPostTemplate1 = path.resolve(`./src/templates/BlogPostTemplate1.js`)
   const blogPostTemplate2 = path.resolve(`./src/templates/BlogPostTemplate2.js`)
-  const allTagsTemplate = path.resolve(`./src/templates/AllTagsTemplate.js`)
+  //const allTagsTemplate = path.resolve(`./src/templates/AllTagsTemplate.js`)
   const tagTemplate = path.resolve(`./src/templates/TagTemplate.js`)
   const templates = Array.from([blogPostTemplate1, blogPostTemplate2])
   return graphql(
@@ -55,18 +56,18 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
-
-    createPage({
+    // list page with all tags
+    /*     createPage({
       path: `tags`,
       component: allTagsTemplate,
       context: {
         tags: tags,
       },
-    })
+    }) */
 
     tags.forEach(tag => {
       createPage({
-        path: `tags/${tag}`,
+        path: `tags/${slugify(tag)}`,
         component: tagTemplate,
         context: {
           tag: tag,

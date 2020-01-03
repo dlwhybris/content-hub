@@ -2,6 +2,7 @@ import React from "react"
 import BackgroundImage from "gatsby-background-image"
 import { useContentfulTags } from "../hooks/use-contentful-tags"
 import { navigate } from "gatsby"
+import { slugify } from "../utils/slugify"
 
 const HeroWithSearch = ({ hero }) => {
   const tags = useContentfulTags()
@@ -13,7 +14,7 @@ const HeroWithSearch = ({ hero }) => {
 
   const naviageToTagPage = event => {
     event.preventDefault()
-    navigate("/tags/" + event.target.value)
+    navigate("/tags/" + slugify(event.target.value))
   }
 
   return (
