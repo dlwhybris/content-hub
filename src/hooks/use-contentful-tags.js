@@ -22,5 +22,5 @@ export const useContentfulTags = () => {
       post.node.tags.forEach(tags.add, tags)
     }
   })
-  return tags
+  return Array.from(tags)
 }
