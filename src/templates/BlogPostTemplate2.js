@@ -93,7 +93,7 @@ export const pageQuery = graphql`
       authors {
         id
         avatar {
-          fluid(maxWidth: 50) {
+          fluid(maxWidth: 100) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
