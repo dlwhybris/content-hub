@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
 
         {(() => {
           //replace hardcoded value with configurable value
-          if (posts.length > 4) {
+          if (posts.length > 10) {
             return (
               <div className="my-12 flex justify-center">
                 <button className="bg-red-500 text-white uppercase font-bold text-2xl px-8 py-3">
