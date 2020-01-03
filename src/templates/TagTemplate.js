@@ -4,13 +4,15 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import { graphql } from "gatsby"
 
-const TagTemplate = ({ data }) => {
+const TagTemplate = ({ data, pageContext }) => {
   const posts = data.allContentfulBlogPost.edges
+  const tag = pageContext.tag
 
   return (
-    <Layout title="tags">
-      <SEO title="Homepage" />
+    <Layout title={tag}>
+      <SEO title={tag} />
       <main className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl">
+        <h1 className="font-medium text-3xl mt-4 py-2 text-red-500">{tag}</h1>
         <div className="my-6">
           <PostCollection posts={posts} />
         </div>

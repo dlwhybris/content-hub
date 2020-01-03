@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 const Tags = ({ tags }) => {
   if (!tags || tags.length === 0) {
@@ -11,7 +12,7 @@ const Tags = ({ tags }) => {
           key={tag}
           className="text-sm font-bold text-red-600 border-r border-red-500 uppercase last:border-r-0 px-2  last:pr-0"
         >
-          {tag}
+          <Link to={`tags/${tag}`}>{tag}</Link>
         </div>
       ))}
     </div>
