@@ -4,7 +4,8 @@ import { useContentfulTags } from "../hooks/use-contentful-tags"
 import { navigate } from "gatsby"
 import { slugify } from "../utils/slugify"
 
-const HeroWithSearch = ({ hero }) => {
+const HeroWithSearch = ({ coverImage }) => {
+  console.log("coverImage", coverImage)
   const tags = useContentfulTags()
 
   const backgroundImageStyle = {
@@ -23,7 +24,7 @@ const HeroWithSearch = ({ hero }) => {
       <BackgroundImage
         Tag="section"
         className="w-full h-96 flex"
-        fluid={hero.coverImage.fluid}
+        fluid={coverImage.fluid}
         style={backgroundImageStyle}
       >
         <div className="self-center md:flex mx-auto">

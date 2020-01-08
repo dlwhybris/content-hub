@@ -12,14 +12,13 @@ import { useContentfulBlogs } from "../hooks/use-contentful-blogs"
 const IndexPage = ({ data }) => {
   const { siteUrl } = useSiteMetadata()
   const { contentfulTitle, blocks } = data.contentfulPage
+  const { coverImage } = blocks[1]
   const posts = useContentfulBlogs()
-  const heros = blocks.filter(block => {
-    return block.__typename === "ContentfulHeroComponent"
-  })
+
   return (
     <Layout location={siteUrl} title={contentfulTitle}>
       <SEO title="Homepage" />
-      <HeroWithSearch hero={heros[0]} />
+      <HeroWithSearch coverImage={coverImage} />
 
       <main className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl">
         <div className="my-6">
