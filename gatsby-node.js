@@ -74,6 +74,9 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
+
+    //build algolia search index
+
     return null
   })
 }
