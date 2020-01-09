@@ -5,6 +5,8 @@ const postQuery = `{
               title
               slug
               tags
+              loginRequired
+              publicationDate(formatString: "MMMM Do, YYYY")
               authors
                 {
                     firstName

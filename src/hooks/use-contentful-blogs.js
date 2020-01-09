@@ -15,19 +15,10 @@ export const useContentfulBlogs = () => {
                     ...GatsbyContentfulFluid_withWebp
                   }
                 }
-                bio {
-                  childMarkdownRemark {
-                    excerpt
-                    html
-                  }
-                }
               }
               title
               tags
               slug
-              content {
-                content
-              }
               cover {
                 fluid(maxWidth: 1200) {
                   ...GatsbyContentfulFluid_withWebp

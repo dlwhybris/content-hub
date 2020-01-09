@@ -1,12 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import BackgroundImage from "gatsby-background-image"
 import { useContentfulTags } from "../hooks/use-contentful-tags"
 import { navigate } from "gatsby"
+import { Link } from "gatsby"
 import { slugify } from "../utils/slugify"
+import Search from "./Search"
 
 const HeroWithSearch = ({ coverImage }) => {
-  console.log("coverImage", coverImage)
   const tags = useContentfulTags()
+  const [searchString, setSearchString] = useState("")
 
   const backgroundImageStyle = {
     backgroundColor: "hsla(0,0%,100%,0.30)",
@@ -29,6 +31,7 @@ const HeroWithSearch = ({ coverImage }) => {
       >
         <div className="self-center md:flex mx-auto">
           <div className="flex md:mr-10 mb-6 md:mb-0">
+            {/* <Search /> */}
             <label htmlFor="search" className="sr-only">
               Search for articles
             </label>
@@ -37,10 +40,13 @@ const HeroWithSearch = ({ coverImage }) => {
               className="bg-white rounded-l-full px-8 py-4 text-gray-700 focus:outline-none border-2 border-white focus:border-2 focus:border-red-300 focus:border-r-0"
               placeholder="I'm interested in"
               id="search"
+              onChange={e => setSearchString(e.target.value)}
             />
-            <button className="text-white bg-red-500 font-bold rounded-r-full py-4 px-8 uppercase tracking-wide">
-              Search
-            </button>
+            <Link to={`/search/`} state={{ refineString: searchString }}>
+              <button className="text-white bg-red-500 font-bold rounded-r-full py-4 px-8 uppercase tracking-wide">
+                Search
+              </button>
+            </Link>
           </div>
           <div className="inline-block relative w-64">
             <label htmlFor="tags" className="sr-only">
