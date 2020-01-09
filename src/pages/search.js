@@ -14,7 +14,7 @@ const SearchPage = ({ location }) => {
         <div className="my-6"></div>
 
         <div className="my-20 flex flex-col justify-center">
-          {location.state.refineString}
+          You searched for {location.state.refineString}
           <Search />
         </div>
       </main>

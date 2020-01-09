@@ -2,11 +2,12 @@ import React from "react"
 import algoliasearch from "algoliasearch/lite"
 import {
   InstantSearch,
-  /*   Highlight,
-  connectHits, */
+  Highlight,
+  connectHits,
   connectSearchBox,
+  SearchBox,
 } from "react-instantsearch-dom"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import { navigate } from "gatsby"
 
 const searchClient = algoliasearch(
@@ -20,7 +21,7 @@ const navigateToSeachPage = (event, currentRefinement) => {
   navigate("/search/")
 }
 
-const SearchBox = connectSearchBox(({ currentRefinement, refine }) => (
+/* const SearchBox = connectSearchBox(({ currentRefinement, refine }) => (
   <form noValidate action="" role="search">
     <label htmlFor="search" className="sr-only">
       Search for articles
@@ -40,9 +41,9 @@ const SearchBox = connectSearchBox(({ currentRefinement, refine }) => (
       Search
     </button>
   </form>
-))
+)) */
 
-/* const Hits = connectHits(({ hits }) => (
+const Hits = connectHits(({ hits }) => (
   <div className="bg-white p-6">
     {hits.length ? (
       <>
@@ -81,7 +82,7 @@ const SearchBox = connectSearchBox(({ currentRefinement, refine }) => (
       <p>There were no results for your query. Please try again.</p>
     )}
   </div>
-)) */
+))
 
 const Search = () => {
   return (
@@ -91,7 +92,7 @@ const Search = () => {
         searchClient={searchClient}
       >
         <SearchBox />
-        {/* <Hits /> */}
+        <Hits />
       </InstantSearch>
     </div>
   )
