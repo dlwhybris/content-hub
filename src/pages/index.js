@@ -6,23 +6,15 @@ import PostCollection from "../components/PostCollection"
 //import Hero from "../components/Hero"
 import HeroWithSearch from "../components/HeroWithSearch"
 import MembershipAction from "../components/MembershipAction"
+import Search from "../components/Search"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { useContentfulBlogs } from "../hooks/use-contentful-blogs"
-
-import ReactDOM from "react-dom"
-import algoliasearch from "algoliasearch/lite"
-import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
 
 const IndexPage = ({ data }) => {
   const { siteUrl } = useSiteMetadata()
   const { contentfulTitle, blocks } = data.contentfulPage
   const { coverImage } = blocks[1]
   const posts = useContentfulBlogs()
-
-  const searchClient = algoliasearch(
-    process.env.GATSBY_ALGOLIA_APP_ID,
-    process.env.GATSBY_ALGOLIA_SEARCH_KEY
-  )
 
   return (
     <Layout location={siteUrl} title={contentfulTitle}>
@@ -51,10 +43,7 @@ const IndexPage = ({ data }) => {
         </div>
 
         <div className="my-20 flex flex-col justify-center">
-          <InstantSearch indexName="prod_blogs" searchClient={searchClient}>
-            <SearchBox />
-            <Hits />
-          </InstantSearch>
+          <Search />
         </div>
       </main>
     </Layout>

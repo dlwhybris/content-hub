@@ -29,7 +29,7 @@ const HeroWithSearch = ({ coverImage }) => {
       >
         <div className="self-center md:flex mx-auto">
           <div className="flex md:mr-10 mb-6 md:mb-0">
-            <label for="search" className="sr-only">
+            <label htmlFor="search" className="sr-only">
               Search for articles
             </label>
             <input
@@ -43,7 +43,7 @@ const HeroWithSearch = ({ coverImage }) => {
             </button>
           </div>
           <div className="inline-block relative w-64">
-            <label for="tags" className="sr-only">
+            <label htmlFor="tags" className="sr-only">
               Browse all tags
             </label>
             <select
