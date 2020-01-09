@@ -16,38 +16,36 @@ console.log("indexName", process.env.GATSBY_ALGOLIA_INDEX_NAME)
 
 const Hits = connectHits(({ hits }) => (
   <div>
-    {/* Always use a ternary when coercing an array length */}
-    {/* otherwise you might print out "0" to your UI */}
     {hits.length ? (
       <>
-        {/* I wanted to give a little explanation of the search here */}
-        <div>
-          These are the results of your search. The title and excerpt are
-          displayed, though your search may have been found in the content of
-          the post as well.
-        </div>
-
-        {/* Here is the crux of the component */}
         {hits.map(hit => {
+          console.log("hit", hit)
           return (
             <div key={hit.objectID}>
-              <Link to={hit.slug}>
+              <Link to={`/blog/` + hit.slug}>
                 <h4>
                   <Highlight attribute="title" hit={hit} tagName="strong" />
                 </h4>
-                {hit.subtitle ? (
-                  <h5>
+                {hit.tags ? (
+                  <h5 className="text-xs">
+                    <Highlight attribute="tags" hit={hit} tagName="strong" />
+                  </h5>
+                ) : null}
+                {hit.authors ? (
+                  <h5 className="text-xs">
                     <Highlight
-                      attribute="subtitle"
+                      attribute="authors[0].firstName"
+                      hit={hit}
+                      tagName="strong"
+                    />
+                    <Highlight
+                      attribute="authors[0].lastName"
                       hit={hit}
                       tagName="strong"
                     />
                   </h5>
                 ) : null}
               </Link>
-              <div>
-                <Highlight attribute="excerpt" hit={hit} tagName="strong" />
-              </div>
             </div>
           )
         })}
