@@ -8,18 +8,11 @@ import {
   SearchBox,
 } from "react-instantsearch-dom"
 import { Link } from "gatsby"
-import { navigate } from "gatsby"
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_KEY
 )
-
-const navigateToSeachPage = (event, currentRefinement) => {
-  event.preventDefault()
-  console.log("currentRefinement", currentRefinement)
-  navigate("/search/")
-}
 
 /* const SearchBox = connectSearchBox(({ currentRefinement, refine }) => (
   <form noValidate action="" role="search">
@@ -44,35 +37,58 @@ const navigateToSeachPage = (event, currentRefinement) => {
 )) */
 
 const Hits = connectHits(({ hits }) => (
-  <div className="bg-white p-6">
+  <div className="p-6">
     {hits.length ? (
       <>
         {hits.map(hit => {
           return (
-            <div key={hit.objectID}>
+            <div
+              key={hit.objectID}
+              className="p-6 border-b-2 border-gray-300 hover:border-gray-200 hover:shadow-lg"
+            >
               <Link to={`/blog/` + hit.slug}>
-                <h4>
-                  <Highlight attribute="title" hit={hit} tagName="strong" />
-                </h4>
-                {hit.tags ? (
-                  <h5 className="text-xs">
-                    <Highlight attribute="tags" hit={hit} tagName="strong" />
-                  </h5>
-                ) : null}
-                {hit.authors ? (
-                  <h5 className="text-xs">
-                    <Highlight
-                      attribute="authors[0].firstName"
-                      hit={hit}
-                      tagName="strong"
-                    />
-                    <Highlight
-                      attribute="authors[0].lastName"
-                      hit={hit}
-                      tagName="strong"
-                    />
-                  </h5>
-                ) : null}
+                <div className="flex justify-between py-2">
+                  <div className="w-1/2">
+                    <h4 className="text-lg font-semibold">
+                      <Highlight attribute="title" hit={hit} tagName="strong" />
+                    </h4>
+
+                    <p className="pt-2 pb-6">
+                      <Highlight
+                        attribute="shortDescription.childMarkdownRemark.excerpt"
+                        tagName="strong"
+                        hit={hit}
+                      />
+                    </p>
+
+                    {hit.authors ? (
+                      <h5 className="text-xs">
+                        <Highlight
+                          attribute="authors[0].firstName"
+                          hit={hit}
+                          tagName="strong"
+                        />
+                        &nbsp;
+                        <Highlight
+                          attribute="authors[0].lastName"
+                          hit={hit}
+                          tagName="strong"
+                        />
+                      </h5>
+                    ) : null}
+                  </div>
+                  <div>
+                    {hit.tags ? (
+                      <h5 className="text-sm font-semibold text-red-600 uppercase">
+                        <Highlight
+                          attribute="tags"
+                          hit={hit}
+                          tagName="strong"
+                        />
+                      </h5>
+                    ) : null}
+                  </div>
+                </div>
               </Link>
             </div>
           )

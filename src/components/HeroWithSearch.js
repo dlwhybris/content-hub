@@ -4,7 +4,6 @@ import { useContentfulTags } from "../hooks/use-contentful-tags"
 import { navigate } from "gatsby"
 import { Link } from "gatsby"
 import { slugify } from "../utils/slugify"
-import Search from "./Search"
 
 const HeroWithSearch = ({ coverImage }) => {
   const tags = useContentfulTags()
@@ -31,7 +30,6 @@ const HeroWithSearch = ({ coverImage }) => {
       >
         <div className="self-center md:flex mx-auto">
           <div className="flex md:mr-10 mb-6 md:mb-0">
-            {/* <Search /> */}
             <label htmlFor="search" className="sr-only">
               Search for articles
             </label>
@@ -54,7 +52,7 @@ const HeroWithSearch = ({ coverImage }) => {
             </label>
             <select
               className="block appearance-none w-full bg-white focus:outline-none rounded-full py-4 px-8 text-gray-700 border-2 border-white"
-              onBlur={e => naviageToTagPage(e)}
+              onChange={e => naviageToTagPage(e)}
               id="tags"
             >
               <option>All </option>
