@@ -107,7 +107,10 @@ const Search = ({ refineString }) => {
         indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
         searchClient={searchClient}
       >
-        <SearchBox searchAsYouType={false} defaultRefinement={refineString} />
+        <SearchBox
+          searchAsYouType={false}
+          defaultRefinement={refineString || ""}
+        />
         <Hits />
       </InstantSearch>
     </div>
