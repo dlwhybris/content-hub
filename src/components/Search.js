@@ -4,7 +4,6 @@ import {
   InstantSearch,
   Highlight,
   connectHits,
-  connectSearchBox,
   SearchBox,
 } from "react-instantsearch-dom"
 import { Link } from "gatsby"
@@ -100,14 +99,15 @@ const Hits = connectHits(({ hits }) => (
   </div>
 ))
 
-const Search = () => {
+const Search = ({ refineString }) => {
+  console.log("refineString", refineString)
   return (
     <div className="md:mr-10 mb-6 md:mb-0">
       <InstantSearch
         indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
         searchClient={searchClient}
       >
-        <SearchBox />
+        <SearchBox searchAsYouType={false} defaultRefinement={refineString} />
         <Hits />
       </InstantSearch>
     </div>
