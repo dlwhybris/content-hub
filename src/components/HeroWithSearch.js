@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState } from "react"
 import BackgroundImage from "gatsby-background-image"
 import { useContentfulTags } from "../hooks/use-contentful-tags"
@@ -45,6 +47,7 @@ const HeroWithSearch = ({ coverImage }) => {
                 className="bg-white rounded-l-full px-8 py-4 text-gray-700 focus:outline-none border-2 border-white focus:border-2 focus:border-red-300 focus:border-r-0"
                 placeholder="I'm interested in"
                 id="search"
+                // eslint-disable-next-line
                 onChange={e => setSearchString(e.target.value)}
               />
               <button
@@ -61,6 +64,7 @@ const HeroWithSearch = ({ coverImage }) => {
             </label>
             <select
               className="block appearance-none w-full bg-white focus:outline-none rounded-full py-4 px-8 text-gray-700 border-2 border-white"
+              // eslint-disable-next-line
               onChange={e => naviageToTagPage(e)}
               id="tags"
             >
