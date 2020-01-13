@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import algoliasearch from "algoliasearch/lite"
 import {
   InstantSearch,
   Highlight,
   connectHits,
-  SearchBox,
+  connectSearchBox,
 } from "react-instantsearch-dom"
 import { Link } from "gatsby"
 
@@ -13,30 +13,24 @@ const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_SEARCH_KEY
 )
 
-/* const SearchBox = connectSearchBox(({ currentRefinement, refine }) => (
-  <form noValidate action="" role="search">
+const SearchBox = connectSearchBox(({ currentRefinement, refine }) => (
+  <div className="w-full mt-4 mb-12">
     <label htmlFor="search" className="sr-only">
       Search for articles
     </label>
     <input
       type="search"
-      className="bg-white rounded-l-full px-8 py-4 text-gray-700 focus:outline-none border-2 border-white focus:border-2 focus:border-red-300 focus:border-r-0"
+      className="w-full bg-gray-200 shadow-inner rounded-full px-8 py-4 text-gray-700 focus:outline-none border-gray-900 focus:border-2 focus:border-gray-300"
       placeholder="I'm interested in"
       value={currentRefinement}
-      //onChange={event => refine(event.currentTarget.value)}
+      onChange={e => refine(e.target.value)}
       id="search"
     />
-    <button
-      className="text-white bg-red-500 font-bold rounded-r-full py-4 px-8 uppercase tracking-wide"
-      onClick={e => navigateToSeachPage(e, currentRefinement)}
-    >
-      Search
-    </button>
-  </form>
-)) */
+  </div>
+))
 
 const Hits = connectHits(({ hits }) => (
-  <div className="p-6">
+  <div className="py-6">
     {hits.length ? (
       <>
         {hits.map(hit => {
@@ -46,8 +40,8 @@ const Hits = connectHits(({ hits }) => (
               className="p-6 border-b-2 border-gray-300 hover:border-gray-200 hover:shadow-lg"
             >
               <Link to={`/blog/` + hit.slug}>
-                <div className="flex justify-between py-2">
-                  <div className="w-1/2">
+                <div className="lg:flex justify-between py-2">
+                  <div className="lg:w-1/2">
                     <h4 className="text-lg font-semibold">
                       <Highlight attribute="title" hit={hit} tagName="strong" />
                     </h4>
@@ -100,17 +94,13 @@ const Hits = connectHits(({ hits }) => (
 ))
 
 const Search = ({ refineString }) => {
-  console.log("refineString", refineString)
   return (
-    <div className="md:mr-10 mb-6 md:mb-0">
+    <div>
       <InstantSearch
         indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
         searchClient={searchClient}
       >
-        <SearchBox
-          searchAsYouType={false}
-          defaultRefinement={refineString || ""}
-        />
+        <SearchBox defaultRefinement={refineString || ""} />
         <Hits />
       </InstantSearch>
     </div>

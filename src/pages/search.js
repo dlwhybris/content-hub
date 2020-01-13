@@ -9,11 +9,8 @@ const SearchPage = ({ location }) => {
 
   return (
     <Layout location={siteUrl} title={location.state.refineString}>
-      <main className="py-4 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl">
-        <div className="my-6"></div>
-
-        <div className="my-20 flex flex-col justify-center">
-          You searched for {location.state.searchString}
+      <main className="py-12 mx-auto max-w-md lg:max-w-4xl xl:max-w-6xl min-h-screen">
+        <div className="p-20 bg-white  shadow-lg  rounded-lgflex flex-col justify-center">
           <Search refineString={location.state.searchString} />
         </div>
       </main>
