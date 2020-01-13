@@ -3,10 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import PostCollection from "../components/PostCollection"
-//import Hero from "../components/Hero"
 import HeroWithSearch from "../components/HeroWithSearch"
 import MembershipAction from "../components/MembershipAction"
-import Search from "../components/Search"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { useContentfulBlogs } from "../hooks/use-contentful-blogs"
 
@@ -40,10 +38,6 @@ const IndexPage = ({ data }) => {
         })()}
         <div className="my-20 flex flex-col justify-center">
           <MembershipAction />
-        </div>
-
-        <div className="my-20 flex flex-col justify-center">
-          <Search />
         </div>
       </main>
     </Layout>

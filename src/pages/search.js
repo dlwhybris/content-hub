@@ -13,8 +13,8 @@ const SearchPage = ({ location }) => {
         <div className="my-6"></div>
 
         <div className="my-20 flex flex-col justify-center">
-          You searched for {location.state.refineString}
-          <Search refineString={location.state.refineString} />
+          You searched for {location.state.searchString}
+          <Search refineString={location.state.searchString} />
         </div>
       </main>
     </Layout>

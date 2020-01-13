@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import BackgroundImage from "gatsby-background-image"
 import { useContentfulTags } from "../hooks/use-contentful-tags"
 import { navigate } from "gatsby"
-import { Link } from "gatsby"
 import { slugify } from "../utils/slugify"
 
 const HeroWithSearch = ({ coverImage }) => {
@@ -19,6 +18,13 @@ const HeroWithSearch = ({ coverImage }) => {
     navigate("/tags/" + slugify(event.target.value))
   }
 
+  const onSearchSubmit = event => {
+    event.preventDefault()
+    navigate("/search/", {
+      state: { searchString },
+    })
+  }
+
   return (
     <div className="bg-gray-100">
       <div></div>
@@ -30,21 +36,24 @@ const HeroWithSearch = ({ coverImage }) => {
       >
         <div className="self-center md:flex mx-auto">
           <div className="flex md:mr-10 mb-6 md:mb-0">
-            <label htmlFor="search" className="sr-only">
-              Search for articles
-            </label>
-            <input
-              type="text"
-              className="bg-white rounded-l-full px-8 py-4 text-gray-700 focus:outline-none border-2 border-white focus:border-2 focus:border-red-300 focus:border-r-0"
-              placeholder="I'm interested in"
-              id="search"
-              onChange={e => setSearchString(e.target.value)}
-            />
-            <Link to={`/search/`} state={{ refineString: searchString }}>
-              <button className="text-white bg-red-500 font-bold rounded-r-full py-4 px-8 uppercase tracking-wide">
+            <form onSubmit={e => onSearchSubmit(e)}>
+              <label htmlFor="search" className="sr-only">
+                Search for articles
+              </label>
+              <input
+                type="text"
+                className="bg-white rounded-l-full px-8 py-4 text-gray-700 focus:outline-none border-2 border-white focus:border-2 focus:border-red-300 focus:border-r-0"
+                placeholder="I'm interested in"
+                id="search"
+                onChange={e => setSearchString(e.target.value)}
+              />
+              <button
+                className="text-white bg-red-500 font-bold rounded-r-full py-4 px-8 uppercase tracking-wide"
+                type="submit"
+              >
                 Search
               </button>
-            </Link>
+            </form>
           </div>
           <div className="inline-block relative w-64">
             <label htmlFor="tags" className="sr-only">
