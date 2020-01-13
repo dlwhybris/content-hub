@@ -51,7 +51,7 @@ const HeroWithSearch = ({ coverImage }) => {
                 onChange={e => setSearchString(e.target.value)}
               />
               <button
-                className="text-white bg-red-500 font-bold rounded-r-full py-4 px-8 uppercase tracking-wide"
+                className="text-white bg-red-600 font-bold rounded-r-full py-4 px-8 uppercase tracking-wide"
                 type="submit"
               >
                 Search
@@ -73,7 +73,7 @@ const HeroWithSearch = ({ coverImage }) => {
                 return <option key={tag}>{tag}</option>
               })}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white bg-red-500 rounded-r-full">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white bg-red-600 rounded-r-full">
               <svg
                 className="fill-current h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
