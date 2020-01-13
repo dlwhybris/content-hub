@@ -11,23 +11,14 @@ export const useContentfulBlogs = () => {
                 firstName
                 lastName
                 avatar {
-                  fluid(maxWidth: 50) {
+                  fluid(maxWidth: 100) {
                     ...GatsbyContentfulFluid_withWebp
-                  }
-                }
-                bio {
-                  childMarkdownRemark {
-                    excerpt
-                    html
                   }
                 }
               }
               title
               tags
               slug
-              content {
-                content
-              }
               cover {
                 fluid(maxWidth: 1200) {
                   ...GatsbyContentfulFluid_withWebp

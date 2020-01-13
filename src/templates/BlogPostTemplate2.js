@@ -46,7 +46,18 @@ const BlogPostTemplate2 = ({ data }) => {
           </section>
           <div className="md:w-2/3">
             <Img fluid={post.cover.fluid} />
-            <article className="py-8 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
+            <div className="py-8 md:px-12 text-gray-800">
+              <div className="border-2 border-red-200 p-4 mt-6">
+                <p
+                  className="md:px-12 text-gray-800 tracking-wide leading-relaxed italic text-sm"
+                  dangerouslySetInnerHTML={{
+                    __html: post.shortDescription.childMarkdownRemark.html,
+                  }}
+                ></p>
+              </div>
+            </div>
+
+            <article className="pb-8 pt-0 md:px-12 text-gray-800 tracking-wide leading-relaxed text-lg">
               {article}
             </article>
           </div>
@@ -82,7 +93,7 @@ export const pageQuery = graphql`
       authors {
         id
         avatar {
-          fluid(maxWidth: 50) {
+          fluid(maxWidth: 100) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
