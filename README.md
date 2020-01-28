@@ -7,41 +7,50 @@
 </a>
 </p>
 <h1 align="center">
-<a href="https://flamboyant-beaver-61051a.netlify.com/" target="_blank">
+<a href="https://unruffled-hypatia-f6fc0b.netlify.com/" target="_blank">
 Delaware Content Hub (click me for live demo)
   </a>
 </h1>
 
 ## 🚀 Quick start
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/67ce2be5-dc5a-4061-90cb-225649343833/deploy-status)](https://app.netlify.com/sites/unruffled-hypatia-f6fc0b/deploys)
+
 1.  **Installation**
 
-    ```sh
-    npm install
-    gatsby develop
+        ```sh
+        npm install
+        gatsby develop
+        ```
+
+        **Create 2 config files**
+
+        ```sh
+        touch .env.development
+        touch .env.production
+        ```
+
+        **Add your keys to the config files**
+
+        ```sh
+        GATSBY_AUTH0_DOMAIN=
+        GATSBY_AUTH0_CLIENTID=<client-id-here>
+        CONTENTFUL_ACCESS_TOKEN=<client-id-here>
+        GATSBY_ALGOLIA_APP_ID=
+        GATSBY_ALGOLIA_SEARCH_KEY=
+        ALGOLIA_ADMIN_KEY=
+        GATSBY_ALGOLIA_INDEX_NAME=prod_blogs
+         ```
+
+        **Open the source code and start editing!**
+
+        Your site is now running at `http://localhost:8000`!
+
+        _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+
     ```
 
-    **Create 2 config files**
-
-    ```sh
-    touch .env.development
-    touch .env.production
     ```
-
-    **Add your keys to the config files**
-
-    ```sh
-    GATSBY_AUTH0_DOMAIN=content-hub-test.eu.auth0.com
-    GATSBY_AUTH0_CLIENTID=<client-id-here>
-    GATSBY_AUTH0_CALLBACK=http://localhost:8000/auth0_callback
-    CONTENTFUL_ACCESS_TOKEN=<client-id-here>
-    ```
-
-    **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:8000`!
-
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
 ## 🎓 Learning Gatsby
 
