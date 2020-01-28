@@ -14,6 +14,8 @@ Delaware Content Hub (click me for live demo)
 
 ## 🚀 Quick start
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/67ce2be5-dc5a-4061-90cb-225649343833/deploy-status)](https://app.netlify.com/sites/unruffled-hypatia-f6fc0b/deploys)
+
 1.  **Installation**
 
     ```sh
