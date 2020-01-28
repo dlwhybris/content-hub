@@ -7,7 +7,7 @@
 </a>
 </p>
 <h1 align="center">
-<a href="https://unruffled-hypatia-f6fc0b.netlify.com/ target="_blank">
+<a href="https://unruffled-hypatia-f6fc0b.netlify.com/" target="_blank">
 Delaware Content Hub (click me for live demo)
   </a>
 </h1>
